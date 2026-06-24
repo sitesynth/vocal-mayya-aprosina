@@ -1,0 +1,156 @@
+import { useState } from "react";
+import { motion } from "motion/react";
+import { Mail, Phone, MapPin, Send, Instagram, Youtube } from "lucide-react";
+import { toast } from "sonner";
+import { Reveal } from "./Reveal";
+import { useLanguage } from "../i18n/LanguageContext";
+
+export function Contact() {
+  const { t } = useLanguage();
+  const occasions = t.contact.occasions;
+  const [occasion, setOccasion] = useState<string>(occasions[0]);
+
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    toast.success(t.contact.toast);
+    e.currentTarget.reset();
+    setOccasion(occasions[0]);
+  };
+
+  return (
+    <section id="contact" className="relative bg-[#2c2118] py-28 text-[#f3ead9] lg:py-36">
+      <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-2 lg:px-10">
+        <Reveal>
+          <p className="mb-4 tracking-[0.35em] uppercase text-[#e3c89a]" style={{ fontSize: "0.78rem" }}>
+            {t.contact.eyebrow}
+          </p>
+          <h2 className="font-serif text-[#f8f2e7]" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 500, lineHeight: 1.15 }}>
+            {t.contact.title1} <span className="italic text-[#e3c89a]">{t.contact.titleItalic}</span> {t.contact.title2}
+          </h2>
+          <p className="mt-5 max-w-md text-[#e7dcc8]/80" style={{ fontSize: "1.1rem", lineHeight: 1.8 }}>
+            {t.contact.text}
+          </p>
+
+          <div className="mt-10 space-y-5">
+            {[
+              { icon: Phone, text: t.contact.phone },
+              { icon: Mail, text: t.contact.email },
+              { icon: MapPin, text: t.contact.location },
+            ].map((c) => (
+              <div key={c.text} className="flex items-center gap-4">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f3ead9]/10 text-[#e3c89a]">
+                  <c.icon size={19} />
+                </span>
+                <span style={{ fontSize: "1.08rem" }}>{c.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex gap-4">
+            {[Instagram, Youtube].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-[#f3ead9]/20 text-[#e3c89a] transition-colors hover:border-[#c9a36a] hover:bg-[#c9a36a] hover:text-[#2a1f15]"
+              >
+                <Icon size={19} />
+              </a>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <form
+            onSubmit={submit}
+            className="rounded-2xl border border-[#f3ead9]/12 bg-[#34281c]/60 p-8 backdrop-blur-sm"
+          >
+            <div className="space-y-5">
+              <div>
+                <label className="mb-2 block text-[#e7dcc8]/80" style={{ fontSize: "0.92rem" }}>
+                  {t.contact.nameLabel}
+                </label>
+                <input
+                  required
+                  type="text"
+                  placeholder={t.contact.namePlaceholder}
+                  className="w-full rounded-lg border border-[#f3ead9]/15 bg-[#2c2118]/60 px-4 py-3 text-[#f8f2e7] outline-none transition-colors placeholder:text-[#e7dcc8]/40 focus:border-[#c9a36a]"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-[#e7dcc8]/80" style={{ fontSize: "0.92rem" }}>
+                  {t.contact.contactLabel}
+                </label>
+                <input
+                  required
+                  type="text"
+                  placeholder={t.contact.contactPlaceholder}
+                  className="w-full rounded-lg border border-[#f3ead9]/15 bg-[#2c2118]/60 px-4 py-3 text-[#f8f2e7] outline-none transition-colors placeholder:text-[#e7dcc8]/40 focus:border-[#c9a36a]"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-[#e7dcc8]/80" style={{ fontSize: "0.92rem" }}>
+                  {t.contact.occasionLabel}
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {occasions.map((o) => (
+                    <button
+                      key={o}
+                      type="button"
+                      onClick={() => setOccasion(o)}
+                      className={`rounded-full border px-4 py-1.5 transition-colors ${
+                        occasion === o
+                          ? "border-[#c9a36a] bg-[#c9a36a] text-[#2a1f15]"
+                          : "border-[#f3ead9]/20 text-[#e7dcc8]/80 hover:border-[#c9a36a]"
+                      }`}
+                      style={{ fontSize: "0.9rem" }}
+                    >
+                      {o}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="mb-2 block text-[#e7dcc8]/80" style={{ fontSize: "0.92rem" }}>
+                  {t.contact.messageLabel}
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder={t.contact.messagePlaceholder}
+                  className="w-full resize-none rounded-lg border border-[#f3ead9]/15 bg-[#2c2118]/60 px-4 py-3 text-[#f8f2e7] outline-none transition-colors placeholder:text-[#e7dcc8]/40 focus:border-[#c9a36a]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a36a] py-3.5 tracking-[0.08em] text-[#2a1f15] transition-all duration-300 hover:bg-[#dbb87f] hover:shadow-[0_15px_40px_-12px_rgba(201,163,106,0.5)]"
+              >
+                <Send size={18} />
+                {t.contact.send}
+              </button>
+            </div>
+          </form>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function Footer() {
+  const { t } = useLanguage();
+  return (
+    <footer className="bg-[#1f160e] py-10 text-center text-[#e7dcc8]/60">
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="font-serif tracking-[0.2em] uppercase text-[#e3c89a]"
+        style={{ fontSize: "1.1rem" }}
+      >
+        {t.name}
+      </motion.p>
+      <p className="mt-3" style={{ fontSize: "0.9rem" }}>
+        © {new Date().getFullYear()} · {t.footer.tagline}
+      </p>
+    </footer>
+  );
+}
