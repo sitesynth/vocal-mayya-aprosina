@@ -18,6 +18,7 @@ export function Navbar() {
     { label: t.nav.recordings, anchor: "#recordings" },
     { label: t.nav.video, anchor: "#video" },
     { label: t.nav.school, route: "/school" },
+    { label: t.nav.projects, route: "/projects" },
     { label: t.nav.contact, anchor: "#contact" },
   ];
 

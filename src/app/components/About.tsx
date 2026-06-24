@@ -1,14 +1,25 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "../i18n/LanguageContext";
+import slide1 from "@/assets/about-1.jpg";
+import slide2 from "@/assets/about-2.png";
+import slide3 from "@/assets/about-3.jpg";
+import slide4 from "@/assets/about-4.png";
+import slide5 from "@/assets/about-5.jpg";
 
-const portrait =
-  "https://images.unsplash.com/photo-1699521376676-69aae178961b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080";
+const slides = [slide1, slide2, slide3, slide4, slide5];
 
 export function About() {
   const { t } = useLanguage();
   const stats = t.about.stats;
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((p) => (p + 1) % slides.length), 4500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="about" className="relative bg-[#f5efe4] py-28 lg:py-36">
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:px-10">
@@ -54,11 +65,36 @@ export function About() {
             className="relative"
           >
             <div className="absolute -inset-3 rounded-[2rem] border border-[#c9a36a]/40" />
-            <ImageWithFallback
-              src={portrait}
-              alt="Portrait of vocal teacher Mayya Aprosina on stage"
-              className="relative h-[34rem] w-full rounded-[1.8rem] object-cover shadow-[0_40px_80px_-30px_rgba(58,46,34,0.6)]"
-            />
+
+            {/* Cross-fading slideshow */}
+            <div className="relative h-[34rem] w-full overflow-hidden rounded-[1.8rem] bg-[#2a1f15] shadow-[0_40px_80px_-30px_rgba(58,46,34,0.6)]">
+              {slides.map((src, i) => (
+                <img
+                  key={i}
+                  src={src}
+                  alt={`Mayya Aprosina — optreden ${i + 1}`}
+                  className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-in-out ${
+                    i === active ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+
+              {/* Dot indicators */}
+              <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setActive(i)}
+                    aria-label={`Foto ${i + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === active ? "w-6 bg-[#f3ead9]" : "w-2 bg-[#f3ead9]/50 hover:bg-[#f3ead9]/80"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

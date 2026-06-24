@@ -11,12 +11,11 @@ type Track = {
   src: string;
 };
 
-// Replace links with your own audio recordings (.mp3).
+// Mayya's own recordings, served from /public/audio.
 const trackSrc = [
-  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+  "/audio/carmina-burana-in-trutina.mp3",
+  "/audio/partskhaladze-lake.mp3",
+  "/audio/piangero.mp3",
 ];
 
 function fmt(t: number) {
