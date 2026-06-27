@@ -4,9 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "../i18n/LanguageContext";
-
-const img =
-  "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1280";
+import img from "@/assets/school-ensemble.jpg";
 
 export function SchoolTeaser() {
   const navigate = useNavigate();
@@ -51,7 +49,7 @@ export function SchoolTeaser() {
             <div className="absolute -inset-3 rounded-[2rem] border border-[#c9a36a]/30" />
             <ImageWithFallback
               src={img}
-              alt="Microphone in a warm vocal studio"
+              alt="Vocal ensemble singing together"
               className="relative h-[26rem] w-full rounded-[1.8rem] object-cover"
             />
           </div>
