@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Reveal } from "./Reveal";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -49,8 +49,6 @@ export function Performances() {
   const { t } = useLanguage();
   const [active, setActive] = useState(0);
   const [dir, setDir] = useState(1);
-  const wheelAccum = useRef(0);
-  const wheelTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const items: Item[] = t.performances.items.map((it, i) => ({
     num: String(i + 1).padStart(2, "0"),
@@ -69,38 +67,12 @@ export function Performances() {
     return () => clearInterval(id);
   }, [items.length]);
 
-  const go = useCallback(
-    (next: number) => {
-      const clamped = Math.max(0, Math.min(items.length - 1, next));
-      if (clamped === active) return;
-      setDir(clamped > active ? 1 : -1);
-      setActive(clamped);
-    },
-    [active, items.length]
-  );
-
-  const handleWheel = useCallback(
-    (e: React.WheelEvent) => {
-      e.preventDefault();
-      wheelAccum.current += e.deltaY;
-      if (wheelTimer.current) clearTimeout(wheelTimer.current);
-      wheelTimer.current = setTimeout(() => {
-        if (Math.abs(wheelAccum.current) > 200) {
-          go(active + (wheelAccum.current > 0 ? 1 : -1));
-        }
-        wheelAccum.current = 0;
-      }, 80);
-    },
-    [active, go]
-  );
-
   const item = items[active];
 
   return (
     <section
       id="performances"
       className="relative bg-[#f5efe4] py-28 lg:py-36"
-      onWheel={handleWheel}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal className="max-w-3xl">

@@ -19,6 +19,7 @@ const FEATURED_MEDIA: Record<
   {
     cover?: string;
     videoIds?: string[];
+    videoFocusX?: number;
     audio?: string;
     photos: string[];
   }
@@ -34,6 +35,7 @@ const FEATURED_MEDIA: Record<
   },
   "japanese-tale": {
     videoIds: ["Y2wCathT-lA"],
+    videoFocusX: -14,
     audio: "/audio/japanese-tale.mp3",
     photos: [
       JT + "PNiH3yVR4sOlAGyA3Ojf78HJC454CrOYbLpwJnV4mguQCFhjoqi3meZcuBj15bqCVrc-Ag.jpg",
@@ -130,6 +132,7 @@ export function ProjectsPage() {
                           subtitle={f.subtitle}
                           cover={media.cover}
                           videoIds={media.videoIds}
+                          videoFocusX={media.videoFocusX}
                           audioSrc={media.audio}
                           labels={{ play: p.play, pause: p.pause }}
                         />

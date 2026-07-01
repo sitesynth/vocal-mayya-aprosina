@@ -18,6 +18,7 @@ export function FeaturedTrackCard({
   subtitle,
   cover,
   videoIds,
+  videoFocusX = 0,
   audioSrc,
   labels,
 }: {
@@ -25,6 +26,9 @@ export function FeaturedTrackCard({
   subtitle: string;
   cover?: string;
   videoIds?: string[];
+  // Extra horizontal nudge (percent of the frame) applied to the living
+  // video cover, e.g. -6 shifts the visible crop left. 0 = centered.
+  videoFocusX?: number;
   audioSrc?: string;
   labels: { play: string; pause: string };
 }) {
@@ -105,7 +109,8 @@ export function FeaturedTrackCard({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.1 }}
-                className="absolute left-1/2 top-1/2 h-full w-[177.78%] -translate-x-1/2 -translate-y-1/2 scale-125"
+                className="absolute left-1/2 top-1/2 h-full w-[177.78%]"
+                style={{ transform: `translate(calc(-50% + ${videoFocusX}%), -50%) scale(1.25)` }}
                 allow="autoplay; encrypted-media"
                 tabIndex={-1}
               />

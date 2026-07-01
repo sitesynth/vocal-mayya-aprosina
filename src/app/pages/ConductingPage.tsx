@@ -163,6 +163,18 @@ export function ConductingPage() {
               <p>{c.choralP1}</p>
               <p>{c.choralP2}</p>
             </div>
+
+            <div className="mt-7 rounded-2xl border border-[#6b4f37]/15 bg-[#efe6d6] p-6">
+              <p className="mb-1 tracking-[0.25em] uppercase text-[#a8814c]" style={{ fontSize: "0.66rem" }}>
+                {c.choralSchoolEyebrow}
+              </p>
+              <p className="font-serif text-[#3a2e22]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
+                {c.choralSchoolName}
+              </p>
+              <p className="mt-3 text-[#6a5740]" style={{ fontSize: "0.95rem", lineHeight: 1.75 }}>
+                {c.choralSchoolText}
+              </p>
+            </div>
           </Reveal>
 
           <div className="relative lg:col-span-7">

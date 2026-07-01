@@ -138,8 +138,8 @@ export const translations = {
       volume: "Volume",
       items: [
         { title: "Carmina Burana — In Trutina", category: "Carl Orff · Classical" },
-        { title: "Lake (Озеро)", category: "Partskhaladze · Vocal" },
         { title: "Piangerò la sorte mia", category: "Händel · Baroque aria" },
+        { title: "Lake (Озеро)", category: "Partskhaladze · Vocal" },
       ],
     },
     video: {
@@ -191,6 +191,7 @@ export const translations = {
     },
     footer: {
       tagline: "Voice · Classical · Jazz. All rights reserved.",
+      madeBy: "Made by",
     },
     school: {
       heroEyebrow: "Vocal School · Pre-enrollment open",
@@ -229,6 +230,10 @@ export const translations = {
       teacherP2: "From 2012 I continued at the Maastricht Conservatoire, and in 2015 broadened my studies further into composition and symphonic conducting — disciplines I pursued out of pure musical curiosity and a desire to understand music from every angle. In every project since, I have stood either behind the podium, at the microphone, or both at once — as conductor, as soloist, and sometimes as the person holding the whole thing together.",
       teacherProjectsLink: "See my personal projects",
       teacherConductingLink: "Read about my work as a conductor",
+      teacherSchoolEyebrow: "About the school",
+      teacherSchoolName: "Gnessin Russian Academy of Music",
+      teacherSchoolText:
+        "Founded in 1895 by the three Gnessin sisters, the Academy is one of Russia's most prestigious music schools and world-renowned for its choral tradition — a synthesis of Russian sacred singing, the classical academic school and folk song. Admission is fiercely competitive; its graduates sing on the great opera stages from La Scala to the Met, and to have trained there opens doors across the musical world.",
       teacherCredentials: [
         { label: "Gnessin Academy, Moscow", detail: "Choral conducting & vocal pedagogy" },
         { label: "Maastricht Conservatoire", detail: "Advanced vocal studies · from 2012" },
@@ -358,7 +363,11 @@ export const translations = {
       choralP1:
         "I trained in choral conducting at the Gnessin Russian Academy of Music in Moscow — one of the most prestigious choral schools in the world. Admission to a tradition this rigorous is rare, and the years there gave me a deep, exacting command of the craft: score reading, gesture, intonation, and the art of hearing many voices as a single living instrument.",
       choralP2:
-        "The Gnessin choral school is the direct heir to the legendary Moscow Synodal tradition — the deep, warm, richly blended Russian sound the whole world associates with Russian choral art. I was schooled in the principles of Pavel Chesnokov, whose treatise “The Choir and How to Direct It” is every conductor's bible, and I came up on the sacred repertoire that remains the golden standard of the craft. That foundation shapes everything I hear and do at the podium.",
+        "That foundation shapes everything I hear and do at the podium — the sacred repertoire, the blend, the breath of a choir moving as one.",
+      choralSchoolEyebrow: "About the school",
+      choralSchoolName: "Gnessin Russian Academy of Music",
+      choralSchoolText:
+        "Founded in 1895 by the three Gnessin sisters, the Academy is one of the world's leading music schools, built on a unique three-tier system — school, college and academy — that guides a musician from earliest childhood to the highest level. Its choral conducting department ranks among the finest anywhere, shaped by legendary choirmasters such as Vladimir Minin, and famous for fusing Russian sacred singing, the classical academic school and folk tradition into a sound of rare warmth, density and impeccable tuning. Admission is fiercely competitive, and its student choirs perform as full professional ensembles on the country's great stages.",
       choralVideoCaption: "Choral conducting — live performance",
 
       symphonicEyebrow: "Symphonic Conducting",
@@ -519,8 +528,8 @@ export const translations = {
       volume: "Volume",
       items: [
         { title: "Carmina Burana — In Trutina", category: "Carl Orff · Klassiek" },
-        { title: "Lake (Озеро)", category: "Partschaladze · Vocaal" },
         { title: "Piangerò la sorte mia", category: "Händel · Barokaria" },
+        { title: "Lake (Озеро)", category: "Partschaladze · Vocaal" },
       ],
     },
     video: {
@@ -572,6 +581,7 @@ export const translations = {
     },
     footer: {
       tagline: "Zang · Klassiek · Jazz. Alle rechten voorbehouden.",
+      madeBy: "Gemaakt door",
     },
     school: {
       heroEyebrow: "Zangschool · Voorinschrijving open",
@@ -610,6 +620,10 @@ export const translations = {
       teacherP2: "Vanaf 2012 vervolgde ik mijn studies aan het Maastrichts Conservatorium, en in 2015 verbreedde ik mijn horizon nog verder met compositie en symfonisch dirigeren — vakgebieden die ik uit puur muzikale nieuwsgierigheid volgde, om muziek vanuit elk perspectief te begrijpen. In elk project sindsdien stond ik achter het podium, aan de microfoon, of allebei tegelijk — als dirigent, als solist en soms als de persoon die het geheel bij elkaar hield.",
       teacherProjectsLink: "Bekijk mijn persoonlijke projecten",
       teacherConductingLink: "Lees over mijn werk als dirigent",
+      teacherSchoolEyebrow: "Over de school",
+      teacherSchoolName: "Gnessin Russische Muziekacademie",
+      teacherSchoolText:
+        "In 1895 opgericht door de drie zussen Gnessin, is de academie een van de meest prestigieuze muziekscholen van Rusland en wereldwijd vermaard om haar koortraditie — een versmelting van Russische gewijde zang, de klassieke academische school en het volkslied. Toelating is bijzonder competitief; haar afgestudeerden zingen op de grote operapodia van La Scala tot de Met, en een opleiding daar opent deuren in de hele muziekwereld.",
       teacherCredentials: [
         { label: "Gnessin Academie, Moskou", detail: "Koordirigeren & vocale pedagogiek" },
         { label: "Maastrichts Conservatorium", detail: "Gevorderde zangstudie · vanaf 2012" },
@@ -739,7 +753,11 @@ export const translations = {
       choralP1:
         "Ik volgde mijn opleiding koordirectie aan de Gnessin Russische Muziekacademie in Moskou — een van de meest prestigieuze koorscholen ter wereld. Toelating tot zo'n veeleisende traditie is zeldzaam, en de jaren daar gaven mij een diepe, nauwkeurige beheersing van het vak: partituurlezen, gebaar, intonatie, en de kunst om vele stemmen als één levend instrument te horen.",
       choralP2:
-        "De Gnessin-koorschool is de directe erfgenaam van de legendarische Moskouse Synodale traditie — de diepe, warme, rijk versmolten Russische klank die de hele wereld met Russische koorkunst verbindt. Ik werd geschoold in de principes van Pavel Tsjesnokov, wiens traktaat “Het koor en hoe het te leiden” de bijbel van elke dirigent is, en ik groeide op met het gewijde repertoire dat nog altijd de gouden standaard van het vak is. Die basis vormt alles wat ik hoor en doe op de bok.",
+        "Die basis vormt alles wat ik hoor en doe op de bok — het gewijde repertoire, de versmelting, de adem van een koor dat als één beweegt.",
+      choralSchoolEyebrow: "Over de school",
+      choralSchoolName: "Gnessin Russische Muziekacademie",
+      choralSchoolText:
+        "In 1895 opgericht door de drie zussen Gnessin, is de academie een van de toonaangevende muziekscholen ter wereld, gebouwd op een uniek drietrapssysteem — school, opleiding en academie — dat een musicus van jongs af aan tot het hoogste niveau begeleidt. Haar afdeling koordirectie behoort tot de allerbeste, gevormd door legendarische koordirigenten als Vladimir Minin, en staat bekend om de versmelting van Russische gewijde zang, de klassieke academische school en de volkstraditie tot een klank van zeldzame warmte, dichtheid en onberispelijke koorstemming. Toelating is bijzonder competitief, en haar studentenkoren treden op als volwaardige professionele ensembles op de grote podia van het land.",
       choralVideoCaption: "Koordirectie — live-uitvoering",
 
       symphonicEyebrow: "Orkestdirectie",

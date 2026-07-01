@@ -220,9 +220,22 @@ export function SchoolPage() {
               <p className="text-[#e7dcc8]/85" style={{ fontSize: "1.05rem", lineHeight: 1.85 }}>
                 {s.teacherP1}
               </p>
+
+              <div className="mt-6 rounded-2xl border border-[#f3ead9]/12 bg-[#241a12]/60 p-6">
+                <p className="mb-1 tracking-[0.25em] uppercase text-[#a8814c]" style={{ fontSize: "0.66rem" }}>
+                  {s.teacherSchoolEyebrow}
+                </p>
+                <p className="font-serif text-[#f8f2e7]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
+                  {s.teacherSchoolName}
+                </p>
+                <p className="mt-3 text-[#e7dcc8]/70" style={{ fontSize: "0.95rem", lineHeight: 1.75 }}>
+                  {s.teacherSchoolText}
+                </p>
+              </div>
+
               <button
                 onClick={() => navigate("/conducting")}
-                className="mt-3 inline-flex items-center gap-1.5 text-[#e3c89a] transition-opacity hover:opacity-70"
+                className="mt-6 inline-flex items-center gap-1.5 text-[#e3c89a] transition-opacity hover:opacity-70"
                 style={{ fontSize: "0.88rem" }}
               >
                 {s.teacherConductingLink} <ArrowRight size={14} />

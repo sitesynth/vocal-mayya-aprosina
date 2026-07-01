@@ -162,6 +162,18 @@ export function Footer() {
       <p className="mt-3" style={{ fontSize: "0.9rem" }}>
         © {new Date().getFullYear()} · {t.footer.tagline}
       </p>
+      <a
+        href="https://www.sitesynth.com/"
+        target="_blank"
+        rel="noopener"
+        className="mt-6 inline-flex items-center gap-2 opacity-55 transition-opacity duration-300 hover:opacity-90"
+        aria-label="Made by SiteSynth"
+      >
+        <span className="tracking-[0.12em] uppercase text-[#e7dcc8]/70" style={{ fontSize: "0.68rem" }}>
+          {t.footer.madeBy}
+        </span>
+        <img src="/sitesynth-logo.svg" alt="SiteSynth" className="h-4 w-auto" />
+      </a>
     </footer>
   );
 }

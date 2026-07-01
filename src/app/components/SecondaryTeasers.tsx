@@ -38,7 +38,7 @@ export function SecondaryTeasers() {
   ];
 
   return (
-    <section className="relative bg-[#f5efe4] py-24 lg:py-28">
+    <section id="projects" className="relative scroll-mt-24 bg-[#f5efe4] py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-8 md:grid-cols-2 lg:gap-10">
           {cards.map((card, i) => (

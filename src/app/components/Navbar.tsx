@@ -14,12 +14,9 @@ export function Navbar() {
   const links: ({ label: string } & ({ anchor: string } | { route: string }))[] = [
     { label: t.nav.about, anchor: "#about" },
     { label: t.nav.performances, anchor: "#performances" },
-    { label: t.nav.concerts, anchor: "#concerts" },
-    { label: t.nav.recordings, anchor: "#recordings" },
-    { label: t.nav.video, anchor: "#video" },
     { label: t.nav.school, route: "/school" },
-    { label: t.nav.projects, route: "/projects" },
-    { label: t.nav.contact, anchor: "#contact" },
+    { label: t.nav.recordings, anchor: "#recordings" },
+    { label: t.nav.projects, anchor: "#projects" },
   ];
 
   useEffect(() => {
@@ -121,7 +118,7 @@ export function Navbar() {
                 : "border-[#e8dcc4]/70 text-[#f8f2e7] hover:bg-[#f8f2e7] hover:text-[#3a2e22]"
             }`}
           >
-            {t.nav.book}
+            {t.nav.contact}
           </button>
         </div>
 
@@ -160,7 +157,7 @@ export function Navbar() {
                 onClick={() => goAnchor("#contact")}
                 className="mt-2 rounded-full bg-[#6b4f37] px-6 py-2.5 text-[#f8f2e7]"
               >
-                {t.nav.book}
+                {t.nav.contact}
               </button>
             </div>
           </motion.div>

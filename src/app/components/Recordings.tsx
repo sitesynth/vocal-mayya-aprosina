@@ -14,8 +14,8 @@ type Track = {
 // Mayya's own recordings, served from /public/audio.
 const trackSrc = [
   "/audio/carmina-burana-in-trutina.mp3",
-  "/audio/partskhaladze-lake.mp3",
   "/audio/piangero.mp3",
+  "/audio/partskhaladze-lake.mp3",
 ];
 
 function fmt(t: number) {
