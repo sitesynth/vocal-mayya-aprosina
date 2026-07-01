@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus, Check, ArrowRight } from "lucide-react";
@@ -6,8 +6,17 @@ import { Reveal } from "../components/Reveal";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const heroImg =
-  "https://images.unsplash.com/photo-1612016410921-264f6afed556?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600";
+import heroImg from "@/assets/school-ensemble.jpg";
+
+const BASE = "/photos/school/Opgeleidaandebestescholen/";
+const TEACHER_BG = [
+  BASE + "556395228_25066857502932552_5014541020571147232_n.jpg",
+  BASE + "gTDBAMJxFvupeYFRPl-ZtC76MB21Feagr9K_bFJHMH4obzR19ZAY-PyjhKkHgtseyM4mq13beCU-YnBIbWfL3r9A.jpg",
+  BASE + "3GSmyZBM1flwHAHp-g2OuypnAjqq2THgjQqw_fwU5_g_S1KaPe7D3rgvkYD1W8vsdWmw7w.jpg",
+  BASE + "Gemini_Generated_Image_8wo1ug8wo1ug8wo1.png",
+  BASE + "Gemini_Generated_Image_6ypuwt6ypuwt6ypu.png",
+  BASE + "Gemini_Generated_Image_9yibkb9yibkb9yib.png",
+];
 
 function Faq({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
   return (
@@ -42,6 +51,13 @@ export function SchoolPage() {
   const { t } = useLanguage();
   const s = t.school;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [bgIdx, setBgIdx] = useState(0);
+
+  // auto-advance teacher background
+  React.useEffect(() => {
+    const id = setInterval(() => setBgIdx(i => (i + 1) % TEACHER_BG.length), 5000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="bg-[#f5efe4]">
@@ -84,6 +100,53 @@ export function SchoolPage() {
         </div>
       </section>
 
+      {/* For whom */}
+      <section className="py-24 lg:py-32 bg-[#f5efe4]">
+        <div className="mx-auto max-w-6xl px-6 lg:px-10">
+          <Reveal className="mb-16">
+            <p className="mb-4 tracking-[0.35em] uppercase text-[#a8814c]" style={{ fontSize: "0.78rem" }}>
+              {s.forWhomEyebrow}
+            </p>
+            <h2
+              className="font-serif text-[#3a2e22]"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)", fontWeight: 500, lineHeight: 1.12 }}
+            >
+              {s.forWhomTitle1}{" "}
+              <span className="italic text-[#8a6a3f]">{s.forWhomTitleItalic}</span>
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-10 md:grid-cols-3">
+            {s.forWhom.map((item, i) => (
+              <motion.div
+                key={item.num}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="rounded-[1.5rem] bg-[#efe6d6] p-8"
+              >
+                <span
+                  className="font-serif text-[#c9a36a]"
+                  style={{ fontSize: "2rem", fontWeight: 600, lineHeight: 1 }}
+                >
+                  {item.num}
+                </span>
+                <h3
+                  className="mt-4 font-serif text-[#3a2e22]"
+                  style={{ fontSize: "1.4rem", fontWeight: 500, lineHeight: 1.2 }}
+                >
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-[#5a4733]" style={{ fontSize: "1rem", lineHeight: 1.75 }}>
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Philosophy */}
       <section className="py-24 lg:py-32">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-12 lg:px-10">
@@ -99,6 +162,97 @@ export function SchoolPage() {
             <p style={{ fontSize: "1.2rem", lineHeight: 1.85 }}>{s.approachP1}</p>
             <p style={{ fontSize: "1.2rem", lineHeight: 1.85 }}>{s.approachP2}</p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Teacher — bleed photo left, text right */}
+      <section className="relative bg-[#2c2118] text-[#f3ead9] overflow-hidden">
+        <div className="flex flex-col lg:flex-row" style={{ minHeight: "80vh" }}>
+
+          {/* Left: full-bleed photo slideshow */}
+          <div className="relative lg:w-1/2 h-72 lg:h-auto overflow-hidden flex-shrink-0">
+            <AnimatePresence>
+              <motion.div
+                key={bgIdx}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2 }}
+                className="absolute inset-0"
+              >
+                <ImageWithFallback
+                  src={TEACHER_BG[bgIdx]}
+                  alt=""
+                  className="h-full w-full object-cover object-center"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Dot controls */}
+            <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+              {TEACHER_BG.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setBgIdx(i)}
+                  className="h-1.5 rounded-full transition-all duration-300 focus:outline-none"
+                  style={{ width: bgIdx === i ? "2rem" : "0.5rem", background: bgIdx === i ? "#c9a36a" : "rgba(255,255,255,0.5)" }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right: text */}
+          <div className="flex flex-col justify-center lg:w-1/2 px-8 py-16 lg:px-14 lg:py-24">
+            <Reveal>
+              <p className="mb-4 tracking-[0.35em] uppercase text-[#e3c89a]" style={{ fontSize: "0.78rem" }}>
+                {s.teacherEyebrow}
+              </p>
+              <h2
+                className="font-serif text-[#f8f2e7]"
+                style={{ fontSize: "clamp(1.9rem, 3.5vw, 3rem)", fontWeight: 500, lineHeight: 1.1 }}
+              >
+                {s.teacherTitle1}{" "}
+                <span className="italic text-[#e3c89a]">{s.teacherTitleItalic}</span>
+              </h2>
+            </Reveal>
+
+            <Reveal delay={0.1} className="mt-8">
+              <p className="text-[#e7dcc8]/85" style={{ fontSize: "1.05rem", lineHeight: 1.85 }}>
+                {s.teacherP1}
+              </p>
+              <button
+                onClick={() => navigate("/conducting")}
+                className="mt-3 inline-flex items-center gap-1.5 text-[#e3c89a] transition-opacity hover:opacity-70"
+                style={{ fontSize: "0.88rem" }}
+              >
+                {s.teacherConductingLink} <ArrowRight size={14} />
+              </button>
+              <p className="mt-5 text-[#e7dcc8]/85" style={{ fontSize: "1.05rem", lineHeight: 1.85 }}>
+                {s.teacherP2}
+              </p>
+              <button
+                onClick={() => navigate("/projects")}
+                className="mt-4 inline-flex items-center gap-1.5 text-[#e3c89a] transition-opacity hover:opacity-70"
+                style={{ fontSize: "0.9rem" }}
+              >
+                {s.teacherProjectsLink} <ArrowRight size={15} />
+              </button>
+            </Reveal>
+
+            <Reveal delay={0.2} className="mt-10 grid grid-cols-2 gap-5">
+              {s.teacherCredentials.map((c) => (
+                <div key={c.label}>
+                  <div className="h-px w-8 bg-[#c9a36a] mb-2" />
+                  <p className="font-serif text-[#f8f2e7]" style={{ fontSize: "0.92rem", fontWeight: 500 }}>
+                    {c.label}
+                  </p>
+                  <p className="mt-0.5 text-[#e7dcc8]/55" style={{ fontSize: "0.8rem" }}>
+                    {c.detail}
+                  </p>
+                </div>
+              ))}
+            </Reveal>
+          </div>
         </div>
       </section>
 

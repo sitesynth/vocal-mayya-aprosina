@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { MapPin, ArrowUpRight } from "lucide-react";
-import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -14,15 +13,67 @@ type Concert = {
   city: string;
   time: string;
   soldOut?: boolean;
+  link?: string;
+  linkLabel?: string;
+  comingSoon?: boolean;
 };
 
 export function Concerts() {
   const { t } = useLanguage();
   const concerts = t.concerts.items as readonly Concert[];
 
-  const reserve = (c: Concert) => {
-    if (c.soldOut) return;
-    toast.success(t.concerts.toast(c.title));
+  const renderAction = (c: Concert) => {
+    if (c.comingSoon) {
+      return (
+        <div className="flex flex-col items-end gap-1">
+          <span
+            className="inline-block rounded-full border border-[#6b4f37]/30 px-5 py-2 tracking-[0.06em] text-[#8a7762]"
+            style={{ fontSize: "0.9rem" }}
+          >
+            {c.linkLabel ?? t.concerts.comingSoon}
+          </span>
+          {c.link && (
+            <a
+              href={c.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 text-[#a8814c] transition-opacity hover:opacity-70"
+              style={{ fontSize: "0.8rem" }}
+            >
+              {t.concerts.info} <ArrowUpRight size={13} />
+            </a>
+          )}
+        </div>
+      );
+    }
+
+    if (c.link) {
+      return (
+        <a
+          href={c.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-full border border-[#6b4f37] px-5 py-2 tracking-[0.06em] text-[#6b4f37] transition-all duration-300 hover:bg-[#6b4f37] hover:text-[#f8f2e7]"
+          style={{ fontSize: "0.9rem" }}
+        >
+          {c.linkLabel ?? t.concerts.reserve}
+          <ArrowUpRight size={16} />
+        </a>
+      );
+    }
+
+    if (c.soldOut) {
+      return (
+        <span
+          className="inline-block rounded-full border border-[#6b4f37]/30 px-5 py-2 tracking-[0.06em] text-[#8a7762]"
+          style={{ fontSize: "0.9rem" }}
+        >
+          {t.concerts.soldOut}
+        </span>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -93,20 +144,7 @@ export function Concerts() {
 
               {/* Action */}
               <div className="md:col-span-2 md:text-right">
-                {c.soldOut ? (
-                  <span className="inline-block rounded-full border border-[#6b4f37]/30 px-5 py-2 tracking-[0.06em] text-[#8a7762]" style={{ fontSize: "0.9rem" }}>
-                    {t.concerts.soldOut}
-                  </span>
-                ) : (
-                  <button
-                    onClick={() => reserve(c)}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#6b4f37] px-5 py-2 tracking-[0.06em] text-[#6b4f37] transition-all duration-300 hover:bg-[#6b4f37] hover:text-[#f8f2e7]"
-                    style={{ fontSize: "0.9rem" }}
-                  >
-                    {t.concerts.reserve}
-                    <ArrowUpRight size={16} />
-                  </button>
-                )}
+                {renderAction(c)}
               </div>
             </motion.div>
           ))}

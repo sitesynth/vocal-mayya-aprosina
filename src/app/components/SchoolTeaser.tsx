@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "../i18n/LanguageContext";
-import img from "@/assets/school-ensemble.jpg";
+const img = "/photos/home/Leerzingenvanuit hethart/Gemini_Generated_Image_cncvkgcncvkgcncv.png";
 
 export function SchoolTeaser() {
   const navigate = useNavigate();

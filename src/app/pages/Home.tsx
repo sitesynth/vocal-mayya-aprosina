@@ -5,7 +5,7 @@ import { Concerts } from "../components/Concerts";
 import { Recordings } from "../components/Recordings";
 import { VideoGallery } from "../components/VideoGallery";
 import { SchoolTeaser } from "../components/SchoolTeaser";
-import { ProjectsTeaser } from "../components/ProjectsTeaser";
+import { SecondaryTeasers } from "../components/SecondaryTeasers";
 import { Contact } from "../components/Contact";
 
 export function Home() {
@@ -18,7 +18,7 @@ export function Home() {
       <Recordings />
       <VideoGallery />
       <SchoolTeaser />
-      <ProjectsTeaser />
+      <SecondaryTeasers />
       <Contact />
     </>
   );

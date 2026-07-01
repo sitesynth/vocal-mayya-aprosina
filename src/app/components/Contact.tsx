@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Mail, Phone, MapPin, Send, Instagram, Youtube } from "lucide-react";
 import { toast } from "sonner";
@@ -9,6 +9,17 @@ export function Contact() {
   const { t } = useLanguage();
   const occasions = t.contact.occasions;
   const [occasion, setOccasion] = useState<string>(occasions[0]);
+
+  // Pre-select a subject when arriving from a CTA (e.g. /?subject=conducting#contact)
+  useEffect(() => {
+    const subject = new URLSearchParams(window.location.search).get("subject");
+    if (subject === "conducting") {
+      const match = occasions.find((o) => /dirig|conduct/i.test(o));
+      if (match) setOccasion(match);
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
