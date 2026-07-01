@@ -9,6 +9,9 @@ import { FeaturedTrackCard } from "../components/FeaturedTrackCard";
 import { projectsMedia } from "../components/projectsMedia";
 
 const PO = "/photos/personal%20orjects/";
+const DFG = PO + "Dear%20Friend%20is%20Gone/";
+const JT = PO + "Japanse%20Tale/";
+const MG = PO + "Mongolia/";
 
 // Media per featured project — keyed to t.projects.featured[i].key
 const FEATURED_MEDIA: Record<
@@ -16,30 +19,35 @@ const FEATURED_MEDIA: Record<
   {
     cover?: string;
     videoIds?: string[];
-    audio: string;
+    audio?: string;
     photos: string[];
   }
 > = {
   "dear-friend": {
-    videoIds: ["s7s4eO1jXbA", "Y2wCathT-lA"],
+    videoIds: ["s7s4eO1jXbA"],
     audio: "/audio/dear-friend-is-gone.mp3",
     photos: [
-      PO + "Gemini_Generated_Image_bikpt4bikpt4bikp.png",
-      PO + "PNiH3yVR4sOlAGyA3Ojf78HJC454CrOYbLpwJnV4mguQCFhjoqi3meZcuBj15bqCVrc-Ag.jpg",
+      DFG + "Gemini_Generated_Image_1oq0x61oq0x61oq0.png",
+      DFG + "P7cdfxUSz9BouEE1x2CpJqA_lIeAaY18hWs8BnNt-atpr6DhMjxIsbyMNMqIpw2R-DTv9iVd.jpg",
+      DFG + "649170777_26531075483177406_7590211371444720547_n.jpg",
+    ],
+  },
+  "japanese-tale": {
+    videoIds: ["Y2wCathT-lA"],
+    audio: "/audio/japanese-tale.mp3",
+    photos: [
+      JT + "PNiH3yVR4sOlAGyA3Ojf78HJC454CrOYbLpwJnV4mguQCFhjoqi3meZcuBj15bqCVrc-Ag.jpg",
+      JT + "Gemini_Generated_Image_6zoail6zoail6zoa.png",
+      JT + "Gemini_Generated_Image_bikpt4bikpt4bikp.png",
     ],
   },
   mongolia: {
     cover: "/projects/mongolia.jpg",
     audio: "/audio/mongolia.mp3",
     photos: [
-      PO + "Gemini_Generated_Image_6zoail6zoail6zoa.png",
-      PO + "P7cdfxUSz9BouEE1x2CpJqA_lIeAaY18hWs8BnNt-atpr6DhMjxIsbyMNMqIpw2R-DTv9iVd.jpg",
+      MG + "Gemini_Generated_Image_ojv71dojv71dojv7.png",
+      MG + "maxresdefault.jpg",
     ],
-  },
-  "odi-et-amo": {
-    cover: "/projects/odi-et-amo.jpg",
-    audio: "/audio/odi-et-amo.mp3",
-    photos: [PO + "649170777_26531075483177406_7590211371444720547_n.jpg"],
   },
 };
 

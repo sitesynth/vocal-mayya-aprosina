@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Play, X } from "lucide-react";
 
-function VideoModal({
+export function VideoModal({
   videoId,
   caption,
   onClose,

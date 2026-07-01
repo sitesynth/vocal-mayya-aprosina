@@ -20,31 +20,28 @@ const media = [
     alt: "Singer before a stained glass window in a church",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1566902249079-c97d67671278?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    alt: "Couple dancing at a celebration",
+    image: "/photos/Optredens/wedding.jpg",
+    alt: "Bride and groom holding hands, wedding bouquet",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1699830506478-af7b3f5e6cc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    alt: "Quiet church interior with stained glass windows",
+    image: "/photos/Optredens/funeral.png",
+    alt: "Flowers on a casket at a farewell ceremony",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1565879629766-30adf38aac56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    alt: "Flowers resting on a grand piano",
+    image: "/photos/Optredens/jazz.jpg",
+    alt: "Grand piano and drum kit in a recording studio",
   },
 ];
 
 const variants = {
   enter: (dir: number) => ({
     opacity: 0,
-    x: dir > 0 ? 60 : -60,
+    x: dir > 0 ? 32 : -32,
   }),
   center: { opacity: 1, x: 0 },
   exit: (dir: number) => ({
     opacity: 0,
-    x: dir > 0 ? -60 : 60,
+    x: dir > 0 ? -32 : 32,
   }),
 };
 
@@ -68,7 +65,7 @@ export function Performances() {
     const id = setInterval(() => {
       setDir(1);
       setActive((prev) => (prev + 1) % items.length);
-    }, 5000);
+    }, 7000);
     return () => clearInterval(id);
   }, [items.length]);
 
@@ -152,7 +149,7 @@ export function Performances() {
                 <motion.span
                   layoutId="tab-underline"
                   className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#c9a36a]"
-                  transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                  transition={{ type: "spring", stiffness: 180, damping: 30 }}
                 />
               )}
             </button>
@@ -169,7 +166,7 @@ export function Performances() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
               className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20"
             >
               {/* Image */}

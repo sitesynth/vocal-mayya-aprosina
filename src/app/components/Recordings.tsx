@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -38,6 +38,7 @@ export function Recordings() {
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
 
   useEffect(() => {
     const a = audioRef.current;
@@ -54,6 +55,11 @@ export function Recordings() {
       a.removeEventListener("ended", onEnd);
     };
   }, [current]);
+
+  useEffect(() => {
+    const a = audioRef.current;
+    if (a) a.volume = volume;
+  }, [volume]);
 
   const toggle = (track: Track) => {
     const a = audioRef.current;
@@ -134,14 +140,34 @@ export function Recordings() {
                   </div>
 
                   {active && (
-                    <span className="hidden shrink-0 tabular-nums text-[#e7dcc8]/70 sm:block" style={{ fontSize: "0.9rem" }}>
-                      {fmt(progress)} / {fmt(duration)}
-                    </span>
+                    <div className="hidden shrink-0 items-center gap-3 sm:flex">
+                      <span className="tabular-nums text-[#e7dcc8]/70" style={{ fontSize: "0.9rem" }}>
+                        {fmt(progress)} / {fmt(duration)}
+                      </span>
+                      <button
+                        onClick={() => setVolume((v) => (v === 0 ? 1 : 0))}
+                        className="text-[#e3c89a]/70 transition-colors hover:text-[#e3c89a]"
+                        aria-label={volume === 0 ? t.recordings.unmute : t.recordings.mute}
+                      >
+                        {volume === 0 ? <VolumeX size={17} /> : <Volume2 size={17} />}
+                      </button>
+                      <input
+                        type="range"
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        value={volume}
+                        onChange={(e) => setVolume(Number(e.target.value))}
+                        onClick={(e) => e.stopPropagation()}
+                        className="h-1 w-20 cursor-pointer accent-[#c9a36a]"
+                        aria-label={t.recordings.volume}
+                      />
+                    </div>
                   )}
                 </div>
 
                 {active && (
-                  <div className="px-5 pb-5">
+                  <div className="flex items-center gap-4 px-5 pb-5">
                     <div
                       onClick={seek}
                       className="group h-1.5 w-full cursor-pointer overflow-hidden rounded-full bg-[#f3ead9]/15"
@@ -151,6 +177,23 @@ export function Recordings() {
                         style={{ width: duration ? `${(progress / duration) * 100}%` : "0%" }}
                       />
                     </div>
+                    <button
+                      onClick={() => setVolume((v) => (v === 0 ? 1 : 0))}
+                      className="shrink-0 text-[#e3c89a]/70 transition-colors hover:text-[#e3c89a] sm:hidden"
+                      aria-label={volume === 0 ? t.recordings.unmute : t.recordings.mute}
+                    >
+                      {volume === 0 ? <VolumeX size={17} /> : <Volume2 size={17} />}
+                    </button>
+                    <input
+                      type="range"
+                      min={0}
+                      max={1}
+                      step={0.01}
+                      value={volume}
+                      onChange={(e) => setVolume(Number(e.target.value))}
+                      className="h-1 w-16 shrink-0 cursor-pointer accent-[#c9a36a] sm:hidden"
+                      aria-label={t.recordings.volume}
+                    />
                   </div>
                 )}
               </motion.div>

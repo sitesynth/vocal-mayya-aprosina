@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Play, Pause } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { VideoModal } from "./VideoPlayer";
 
 function fmt(t: number) {
   if (!isFinite(t)) return "0:00";
@@ -24,7 +25,7 @@ export function FeaturedTrackCard({
   subtitle: string;
   cover?: string;
   videoIds?: string[];
-  audioSrc: string;
+  audioSrc?: string;
   labels: { play: string; pause: string };
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -32,6 +33,7 @@ export function FeaturedTrackCard({
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [vidIdx, setVidIdx] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Rotate through the living-cover videos when there is more than one.
   useEffect(() => {
@@ -60,6 +62,10 @@ export function FeaturedTrackCard({
   }, []);
 
   const toggle = () => {
+    if (!audioSrc) {
+      setModalOpen(true);
+      return;
+    }
     const a = audioRef.current;
     if (!a) return;
     if (playing) {
@@ -99,7 +105,7 @@ export function FeaturedTrackCard({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.1 }}
-                className="absolute left-1/2 top-1/2 h-full w-[177.78%] -translate-x-1/2 -translate-y-1/2"
+                className="absolute left-1/2 top-1/2 h-full w-[177.78%] -translate-x-1/2 -translate-y-1/2 scale-125"
                 allow="autoplay; encrypted-media"
                 tabIndex={-1}
               />
@@ -143,19 +149,31 @@ export function FeaturedTrackCard({
               {subtitle}
             </p>
           </div>
-          <span className="shrink-0 tabular-nums text-[#e7dcc8]/60" style={{ fontSize: "0.82rem" }}>
-            {fmt(progress)}
-          </span>
+          {audioSrc && (
+            <span className="shrink-0 tabular-nums text-[#e7dcc8]/60" style={{ fontSize: "0.82rem" }}>
+              {fmt(progress)}
+            </span>
+          )}
         </div>
-        <div
-          onClick={seek}
-          className="mt-4 h-1.5 w-full cursor-pointer overflow-hidden rounded-full bg-[#f3ead9]/15"
-        >
-          <div className="h-full rounded-full bg-[#c9a36a]" style={{ width: `${pct}%` }} />
-        </div>
+        {audioSrc && (
+          <div
+            onClick={seek}
+            className="mt-4 h-1.5 w-full cursor-pointer overflow-hidden rounded-full bg-[#f3ead9]/15"
+          >
+            <div className="h-full rounded-full bg-[#c9a36a]" style={{ width: `${pct}%` }} />
+          </div>
+        )}
       </div>
 
-      <audio ref={audioRef} preload="none" src={audioSrc} />
+      {audioSrc && <audio ref={audioRef} preload="none" src={audioSrc} />}
+
+      {!audioSrc && hasVideo && (
+        <AnimatePresence>
+          {modalOpen && (
+            <VideoModal videoId={activeVid as string} caption={title} onClose={() => setModalOpen(false)} />
+          )}
+        </AnimatePresence>
+      )}
     </div>
   );
 }

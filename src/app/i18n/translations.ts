@@ -133,6 +133,9 @@ export const translations = {
       text: "Selected recordings — from baroque arias to contemporary vocal works.",
       play: "Play",
       pause: "Pause",
+      mute: "Mute",
+      unmute: "Unmute",
+      volume: "Volume",
       items: [
         { title: "Carmina Burana — In Trutina", category: "Carl Orff · Classical" },
         { title: "Lake (Озеро)", category: "Partskhaladze · Vocal" },
@@ -292,6 +295,7 @@ export const translations = {
       play: "Play",
       pause: "Pause",
       items: [
+        { title: "Atacama", subtitle: "Original song" },
         { title: "Dear Friend is Gone", subtitle: "Original song" },
         { title: "Mongolia", subtitle: "Original song" },
         { title: "Shards", subtitle: "Original song" },
@@ -304,14 +308,25 @@ export const translations = {
       featured: [
         {
           key: "dear-friend",
-          eyebrow: "Original song · Jazz & folk",
+          eyebrow: "Original song · Conservatoire grant project",
           title: "Dear Friend is Gone",
+          subtitle: "Original song · studio recording, Conservatoire of Maastricht",
+          paragraphs: [
+            "“Dear Friend is Gone” grew out of a grant from the Conservatoire of Maastricht, awarded to record the song in the conservatoire's own studio and bring it to the stage in performance.",
+            "It gave the piece a rare kind of care — the time and the room to shape every phrase before an audience ever heard it.",
+          ],
+        },
+        {
+          key: "japanese-tale",
+          eyebrow: "Original song · Jazz & folk",
+          title: "Japanese Tale",
           subtitle: "Original song · live at the Jazz Spring Festival",
           paragraphs: [
-            "Written and first performed at the Jazz Spring Festival of the Conservatoire of Maastricht, “Dear Friend is Gone” was born from a fascination with the places where jazz meets the folk music of the world.",
-            "That evening carried several of my pieces — improvisations built on some of the least expected pairings in music: Russian folk song and jazz, the modal colours of Mongolian melody, the quiet ceremony of Japanese traditional music, each meeting the freedom of jazz harmony.",
+            "Written and first performed at the Jazz Spring Festival of the Conservatoire of Maastricht, “Japanese Tale” was born from a fascination with the places where jazz meets the folk music of the world.",
+            "That evening carried several of my pieces — improvisations built on some of the least expected pairings in music: Russian folk song and jazz, the modal colours of Mongolian melody, and, in this piece, the quiet ceremony of Japanese traditional music meeting the freedom of jazz harmony.",
             "It is music that refuses borders — where an ancient melody and a walking bass can, for a few bars, become the same language.",
           ],
+          watchLabel: "Watch",
         },
         {
           key: "mongolia",
@@ -326,17 +341,6 @@ export const translations = {
           creditName: "Vanesa Díaz Gil",
           creditText:
             "Vanesa Díaz Gil (Canary Islands, Spain) is a natural musician who sings with great emotional depth. Classically trained on saxophone at the Conservatory of Tenerife, she fell in love with improvisation, jazz and later flamenco. In 2012 she moved to the Netherlands to study Jazz/Pop Composition & Arranging at the Conservatoire of Maastricht, and earned her Master's in Jazz Composition & Arranging cum laude in Brussels under Kris Defoort and Michelino Bisceglia. She has performed across Spain, Belgium, the Netherlands, Norway and India, sharing the stage with musicians such as Jorge Pardo and Dick Oatts, among many others.",
-        },
-        {
-          key: "odi-et-amo",
-          eyebrow: "Cinematic · Classical & Eastern voice",
-          title: "Odi et Amo",
-          subtitle: "Cinematic piece · classical & Eastern vocals",
-          paragraphs: [
-            "Named after Catullus's burning couplet — “I hate and I love” — “Odi et Amo” is a cinematic work inspired by the sweeping scores of the gladiator epics.",
-            "It weaves together two vocal worlds: the discipline and line of classical singing, and the ornament and breath of the Eastern voice — monumental and intimate at once.",
-          ],
-          watchLabel: "Watch",
         },
       ],
     },
@@ -510,6 +514,9 @@ export const translations = {
       text: "Geselecteerde opnames — van barokaria's tot hedendaagse vocale werken.",
       play: "Afspelen",
       pause: "Pauze",
+      mute: "Dempen",
+      unmute: "Dempen opheffen",
+      volume: "Volume",
       items: [
         { title: "Carmina Burana — In Trutina", category: "Carl Orff · Klassiek" },
         { title: "Lake (Озеро)", category: "Partschaladze · Vocaal" },
@@ -669,6 +676,7 @@ export const translations = {
       play: "Afspelen",
       pause: "Pauze",
       items: [
+        { title: "Atacama", subtitle: "Eigen song" },
         { title: "Dear Friend is Gone", subtitle: "Eigen song" },
         { title: "Mongolia", subtitle: "Eigen song" },
         { title: "Shards", subtitle: "Eigen song" },
@@ -681,14 +689,25 @@ export const translations = {
       featured: [
         {
           key: "dear-friend",
-          eyebrow: "Eigen song · Jazz & folk",
+          eyebrow: "Eigen song · Beursproject Conservatorium",
           title: "Dear Friend is Gone",
+          subtitle: "Eigen song · studio-opname, Conservatorium van Maastricht",
+          paragraphs: [
+            "“Dear Friend is Gone” ontstond uit een beurs van het Conservatorium van Maastricht, toegekend om de song op te nemen in de eigen studio van het conservatorium en live te brengen.",
+            "Dat gaf het stuk een zeldzame zorg — de tijd en de ruimte om elke frase te vormen voordat een publiek het ooit hoorde.",
+          ],
+        },
+        {
+          key: "japanese-tale",
+          eyebrow: "Eigen song · Jazz & folk",
+          title: "Japanese Tale",
           subtitle: "Eigen song · live op het Jazz Spring Festival",
           paragraphs: [
-            "“Dear Friend is Gone” werd geschreven en voor het eerst uitgevoerd op het Jazz Spring Festival van het Conservatorium van Maastricht, en ontstond uit een fascinatie voor de plekken waar jazz de volksmuziek van de wereld ontmoet.",
-            "Die avond klonken meerdere van mijn stukken — improvisaties gebouwd op enkele van de meest onverwachte combinaties in de muziek: Russische volksliederen en jazz, de modale kleuren van Mongoolse melodie, de stille ceremonie van Japanse traditionele muziek, elk in ontmoeting met de vrijheid van de jazzharmonie.",
+            "“Japanese Tale” werd geschreven en voor het eerst uitgevoerd op het Jazz Spring Festival van het Conservatorium van Maastricht, en ontstond uit een fascinatie voor de plekken waar jazz de volksmuziek van de wereld ontmoet.",
+            "Die avond klonken meerdere van mijn stukken — improvisaties gebouwd op enkele van de meest onverwachte combinaties in de muziek: Russische volksliederen en jazz, de modale kleuren van Mongoolse melodie, en in dit stuk de stille ceremonie van Japanse traditionele muziek, in ontmoeting met de vrijheid van de jazzharmonie.",
             "Het is muziek die grenzen weigert — waar een eeuwenoude melodie en een walking bass een paar maten lang dezelfde taal kunnen spreken.",
           ],
+          watchLabel: "Bekijk",
         },
         {
           key: "mongolia",
@@ -703,17 +722,6 @@ export const translations = {
           creditName: "Vanesa Díaz Gil",
           creditText:
             "Vanesa Díaz Gil (Canarische Eilanden, Spanje) is een natuurtalent dat met grote emotionele diepgang zingt. Klassiek geschoold op saxofoon aan het Conservatorium van Tenerife raakte ze verliefd op improvisatie, jazz en later flamenco. In 2012 verhuisde ze naar Nederland om Jazz/Pop Compositie & Arrangement te studeren aan het Conservatorium van Maastricht, en behaalde in Brussel cum laude haar master Jazzcompositie & Arrangement onder Kris Defoort en Michelino Bisceglia. Ze trad op in Spanje, België, Nederland, Noorwegen en India, en deelde het podium met musici als Jorge Pardo en Dick Oatts, onder vele anderen.",
-        },
-        {
-          key: "odi-et-amo",
-          eyebrow: "Cinematisch · Klassieke & oosterse stem",
-          title: "Odi et Amo",
-          subtitle: "Cinematisch stuk · klassieke & oosterse zang",
-          paragraphs: [
-            "Vernoemd naar het brandende vers van Catullus — “Ik haat en ik heb lief” — is “Odi et Amo” een cinematisch werk, geïnspireerd op de meeslepende filmmuziek van de gladiatorepen.",
-            "Het verweeft twee vocale werelden: de discipline en lijn van klassieke zang, en het ornament en de adem van de oosterse stem — monumentaal en intiem tegelijk.",
-          ],
-          watchLabel: "Bekijk",
         },
       ],
     },
