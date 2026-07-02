@@ -9,6 +9,10 @@ export function Contact() {
   const { t } = useLanguage();
   const occasions = t.contact.occasions;
   const [occasion, setOccasion] = useState<string>(occasions[0]);
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
 
   // Pre-select a subject when arriving from a CTA (e.g. /?subject=conducting#contact)
   useEffect(() => {
@@ -21,11 +25,27 @@ export function Contact() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+  const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast.success(t.contact.toast);
-    e.currentTarget.reset();
-    setOccasion(occasions[0]);
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, contact, occasion, message }),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      toast.success(t.contact.toast);
+      e.currentTarget.reset();
+      setName("");
+      setContact("");
+      setMessage("");
+      setOccasion(occasions[0]);
+    } catch {
+      toast.error(t.contact.toastError);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -84,6 +104,8 @@ export function Contact() {
                 <input
                   required
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder={t.contact.namePlaceholder}
                   className="w-full rounded-lg border border-[#f3ead9]/15 bg-[#2c2118]/60 px-4 py-3 text-[#f8f2e7] outline-none transition-colors placeholder:text-[#e7dcc8]/40 focus:border-[#c9a36a]"
                 />
@@ -95,6 +117,8 @@ export function Contact() {
                 <input
                   required
                   type="text"
+                  value={contact}
+                  onChange={(e) => setContact(e.target.value)}
                   placeholder={t.contact.contactPlaceholder}
                   className="w-full rounded-lg border border-[#f3ead9]/15 bg-[#2c2118]/60 px-4 py-3 text-[#f8f2e7] outline-none transition-colors placeholder:text-[#e7dcc8]/40 focus:border-[#c9a36a]"
                 />
@@ -127,16 +151,19 @@ export function Contact() {
                 </label>
                 <textarea
                   rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   placeholder={t.contact.messagePlaceholder}
                   className="w-full resize-none rounded-lg border border-[#f3ead9]/15 bg-[#2c2118]/60 px-4 py-3 text-[#f8f2e7] outline-none transition-colors placeholder:text-[#e7dcc8]/40 focus:border-[#c9a36a]"
                 />
               </div>
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a36a] py-3.5 tracking-[0.08em] text-[#2a1f15] transition-all duration-300 hover:bg-[#dbb87f] hover:shadow-[0_15px_40px_-12px_rgba(201,163,106,0.5)]"
+                disabled={sending}
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-[#c9a36a] py-3.5 tracking-[0.08em] text-[#2a1f15] transition-all duration-300 hover:bg-[#dbb87f] hover:shadow-[0_15px_40px_-12px_rgba(201,163,106,0.5)] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send size={18} />
-                {t.contact.send}
+                {sending ? t.contact.sending : t.contact.send}
               </button>
             </div>
           </form>
