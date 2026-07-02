@@ -191,6 +191,13 @@ export function Performances() {
                   ))}
                 </ul>
 
+                <button
+                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                  className="mt-8 rounded-full bg-[#c9a36a] px-8 py-3.5 tracking-[0.08em] text-[#2a1f15] shadow-[0_10px_25px_-8px_rgba(201,163,106,0.6)] transition-all duration-300 hover:bg-[#dbb87f]"
+                >
+                  {t.nav.book}
+                </button>
+
                 {/* Dot navigation */}
                 <div className="mt-10 flex gap-3">
                   {items.map((_, i) => (
