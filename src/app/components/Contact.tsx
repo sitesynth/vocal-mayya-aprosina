@@ -27,6 +27,7 @@ export function Contact() {
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
     setSending(true);
     try {
       const res = await fetch("/api/contact", {
@@ -36,7 +37,7 @@ export function Contact() {
       });
       if (!res.ok) throw new Error("Failed to send");
       toast.success(t.contact.toast);
-      e.currentTarget.reset();
+      form.reset();
       setName("");
       setContact("");
       setMessage("");
