@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Send, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Instagram, Youtube, Facebook } from "lucide-react";
+
+const SOCIAL_LINKS = [
+  { Icon: Instagram, href: "https://www.instagram.com/mayyadensteysi/", label: "Instagram" },
+  { Icon: Youtube, href: "https://www.youtube.com/@Densteysi", label: "YouTube" },
+  { Icon: Facebook, href: "https://www.facebook.com/maya.densteysi", label: "Facebook" },
+];
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -79,11 +85,13 @@ export function Contact() {
           </div>
 
           <div className="mt-8 flex gap-4">
-            {[Instagram, Youtube].map((Icon, i) => (
+            {SOCIAL_LINKS.map(({ Icon, href, label }) => (
               <a
-                key={i}
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-[#f3ead9]/20 text-[#e3c89a] transition-colors hover:border-[#c9a36a] hover:bg-[#c9a36a] hover:text-[#2a1f15]"
               >
                 <Icon size={19} />
