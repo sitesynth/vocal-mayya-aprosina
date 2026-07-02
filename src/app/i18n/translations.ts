@@ -33,9 +33,9 @@ export const translations = {
       p2: "A classical academic training and a deep love of jazz let me find the right intonation for any moment: the joy of a wedding, the gentle sorrow of a farewell, or an evening of live music.",
       quote: "\"The voice is the instrument the heart plays.\"",
       stats: [
-        { value: "18", label: "years on stage" },
-        { value: "200+", label: "students" },
-        { value: "350", label: "performances" },
+        { value: "25", label: "years in music" },
+        { value: "5", label: "years teaching" },
+        { value: "4", label: "genres — classical, sacred, jazz & ethnic" },
       ],
       tabs: [
         {
@@ -187,7 +187,9 @@ export const translations = {
       messageLabel: "Message",
       messagePlaceholder: "Tell me about your event",
       send: "Send request",
+      sending: "Sending…",
       toast: "Thank you! I'll get back to you very soon.",
+      toastError: "Something went wrong. Please try again or email me directly.",
     },
     footer: {
       tagline: "Voice · Classical · Jazz. All rights reserved.",
@@ -423,9 +425,9 @@ export const translations = {
       p2: "Een klassieke academische opleiding en een diepe liefde voor jazz laten me voor elk moment de juiste intonatie vinden: de vreugde van een huwelijk, het zachte verdriet van een afscheid of een avond live muziek.",
       quote: "\"De stem is het instrument waarop het hart speelt.\"",
       stats: [
-        { value: "18", label: "jaar op het podium" },
-        { value: "200+", label: "leerlingen" },
-        { value: "350", label: "optredens" },
+        { value: "25", label: "jaar in de muziek" },
+        { value: "5", label: "jaar lesgeven" },
+        { value: "4", label: "genres — klassiek, kerkmuziek, jazz & etnisch" },
       ],
       tabs: [
         {
@@ -577,7 +579,9 @@ export const translations = {
       messageLabel: "Bericht",
       messagePlaceholder: "Vertel me over uw evenement",
       send: "Verstuur aanvraag",
+      sending: "Bezig met verzenden…",
       toast: "Dank u! Ik neem spoedig contact met u op.",
+      toastError: "Er ging iets mis. Probeer opnieuw of mail me rechtstreeks.",
     },
     footer: {
       tagline: "Zang · Klassiek · Jazz. Alle rechten voorbehouden.",

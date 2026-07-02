@@ -107,7 +107,7 @@ export function ProjectPlayer({
                   className={`absolute bottom-3 right-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#c9a36a] text-[#2a1f15] shadow-[0_10px_25px_-8px_rgba(201,163,106,0.8)] transition-all duration-300 hover:bg-[#dbb87f] ${
                     isPlaying
                       ? "translate-y-0 opacity-100"
-                      : "translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                      : "translate-y-0 opacity-100 [@media(hover:hover)]:translate-y-2 [@media(hover:hover)]:opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
                   }`}
                 >
                   {isPlaying ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
