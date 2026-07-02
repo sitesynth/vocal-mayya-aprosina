@@ -191,12 +191,21 @@ export function Performances() {
                   ))}
                 </ul>
 
-                <button
-                  onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="mt-8 rounded-full bg-[#c9a36a] px-8 py-3.5 tracking-[0.08em] text-[#2a1f15] shadow-[0_10px_25px_-8px_rgba(201,163,106,0.6)] transition-all duration-300 hover:bg-[#dbb87f]"
-                >
-                  {t.nav.book}
-                </button>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <button
+                    onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                    className="rounded-full bg-[#c9a36a] px-8 py-3.5 tracking-[0.08em] text-[#2a1f15] shadow-[0_10px_25px_-8px_rgba(201,163,106,0.6)] transition-all duration-300 hover:bg-[#dbb87f]"
+                  >
+                    {t.nav.book}
+                  </button>
+                  <button
+                    onClick={() => document.querySelector("#recordings")?.scrollIntoView({ behavior: "smooth" })}
+                    className="group inline-flex items-center gap-2 tracking-[0.06em] text-[#8a6a3f] transition-colors hover:text-[#6b4f37]"
+                  >
+                    {t.hero.cta2}
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </button>
+                </div>
 
                 {/* Dot navigation */}
                 <div className="mt-10 flex gap-3">
