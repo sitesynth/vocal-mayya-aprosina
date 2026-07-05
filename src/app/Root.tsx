@@ -3,6 +3,8 @@ import { Outlet, useLocation } from "react-router";
 import { Toaster } from "sonner";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Contact";
+import { EnrollPopup } from "./components/EnrollPopup";
+import { Seo } from "./components/Seo";
 
 export function Root() {
   const { pathname, hash } = useLocation();
@@ -21,11 +23,13 @@ export function Root() {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-[#f5efe4] text-[#3a2e22]">
+      <Seo />
       <Navbar />
       <main>
         <Outlet />
       </main>
       <Footer />
+      <EnrollPopup />
       <Toaster
         position="bottom-center"
         toastOptions={{

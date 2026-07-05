@@ -4,6 +4,7 @@ node_modules
 # build output
 dist
 dist-ssr
+server-build
 
 # local env files
 .env

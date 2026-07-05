@@ -68,6 +68,7 @@ export const translations = {
       eyebrow: "Performances",
       title1: "The right music for",
       titleItalic: "every occasion",
+      pageLink: "Read more",
       items: [
         {
           title: "In the Church",
@@ -90,6 +91,131 @@ export const translations = {
           repertoire: ["Autumn Leaves", "Summertime", "Italian arias"],
         },
       ],
+    },
+    occasions: {
+      backHome: "Home",
+      includesLabel: "What's included",
+      repertoireLabel: "A few favourites",
+      regionLabel: "Where I perform",
+      faqLabel: "Frequently asked",
+      cta: "Check my availability",
+      ctaSecondary: "See all performances",
+      cities: ["Bornem", "Puurs", "Oppuurs", "Sint-Amands", "Willebroek", "Boom", "Temse", "Mechelen", "Dendermonde", "Buggenhout", "Hamme", "Sint-Niklaas"],
+      weddings: {
+        eyebrow: "Live singing · Weddings",
+        h1a: "A singer for",
+        h1i: "your wedding day",
+        intro: [
+          "From the ceremony to the first toast, a live voice turns the biggest moments of your wedding into something unforgettable. I sing for the entrance, the vows, the signing of the register and the reception — classical, sacred or jazz, tuned to the atmosphere you dream of.",
+          "Based in Bornem, I sing at weddings throughout Puurs, Willebroek, Temse, Mechelen, Dendermonde and the whole Klein-Brabant region — in churches, castles, estates and intimate venues.",
+        ],
+        includes: [
+          { t: "The ceremony", d: "Live singing for the entrance, the vows and the signing — in church or at a civil ceremony." },
+          { t: "Reception & dinner", d: "Classical crossover and warm jazz standards as your guests arrive and celebrate." },
+          { t: "Your song", d: "We choose the repertoire together — including a special request for your first dance or a family favourite." },
+        ],
+        repertoire: ["Schubert · Ave Maria", "The Prayer", "Caccini · Ave Maria", "Can't Help Falling in Love", "A Thousand Years", "Hallelujah"],
+        regionText: "Available for weddings across the Antwerp province and Klein-Brabant — including:",
+        faq: [
+          { q: "Live accompaniment or backing tracks?", a: "Both are possible — with pianist or organist for a classical ceremony, or with high-quality tracks for jazz and pop." },
+          { q: "Can you learn a song that isn't in your repertoire?", a: "Yes. If a song has special meaning for you, I'm glad to prepare it for your day." },
+          { q: "How far do you travel?", a: "Bornem and the wider Klein-Brabant region are standard; further afield is possible on request." },
+        ],
+        ctaTitle: "Let's make your day sing",
+        ctaText: "Tell me your date and venue — I reply personally, usually within the day.",
+        sections: [
+          {
+            eyebrow: "In the church",
+            title: "The ceremony",
+            text: "Live singing during your church ceremony — for the entrance, the vows, the signing of the register and the recessional, chosen together with you.",
+            points: [
+              "With my own organist, or with the organist your church or venue provides",
+              "A choir can be added as an option",
+              "Sacred and classical repertoire, from Ave Maria to your personal request",
+            ],
+          },
+          {
+            eyebrow: "Reception & celebration",
+            title: "The reception",
+            text: "For the reception you choose between two moods:",
+            variants: [
+              { name: "Classical", desc: "Elegant classical crossover and timeless evergreens — solo or with pianist." },
+              { name: "Jazz", desc: "A swinging jazz combo of my own musicians — the perfect warm atmosphere for a reception or dinner, and a truly ideal fit for these celebrations." },
+            ],
+          },
+        ],
+        songsTitle: "Song suggestions",
+        showMedia: true,
+      },
+      funerals: {
+        eyebrow: "Live singing · Farewells",
+        h1a: "A voice for",
+        h1i: "a gentle farewell",
+        intro: [
+          "A live voice can say what words cannot. For funerals, memorials and farewell ceremonies I sing softly and sincerely — music that holds grief with warmth and dignity, and gives everyone present a moment to breathe.",
+          "I sing at churches, crematoria and funeral homes in Bornem, Puurs, Willebroek, Mechelen, Dendermonde and across Klein-Brabant, working discreetly alongside your funeral director.",
+        ],
+        includes: [
+          { t: "The service", d: "Singing at the entrance, during the tribute and at the final farewell — in church, chapel or crematorium." },
+          { t: "Sensitive to the family", d: "Repertoire and volume chosen with care, so the music supports rather than overwhelms." },
+          { t: "A meaningful song", d: "A favourite piece of your loved one can be prepared as a personal tribute." },
+        ],
+        repertoire: ["Pie Jesu", "Amazing Grace", "Ave Maria", "Time to Say Goodbye", "Panis Angelicus", "Requiem excerpts"],
+        regionText: "Available for farewell ceremonies across the Antwerp province and Klein-Brabant — including:",
+        faq: [
+          { q: "How quickly can you be booked?", a: "Farewells are often arranged at short notice — please reach out and I'll do my best to be there." },
+          { q: "Do you work with our funeral director?", a: "Yes, I coordinate discreetly with the funeral home and celebrant on timing and repertoire." },
+          { q: "Can you sing a specific song?", a: "Of course. A song that meant something to your loved one can become a fitting tribute." },
+        ],
+        ctaTitle: "Music for a dignified farewell",
+        ctaText: "Reach out with the date and place — I answer personally and with care.",
+      },
+      ceremonies: {
+        eyebrow: "Live singing · Church & Ceremony",
+        h1a: "Sacred song for",
+        h1i: "church & ceremony",
+        intro: [
+          "Liturgical and sacred singing that fills the nave — for Sunday services, feast days, baptisms, communions and quiet moments of devotion. Classically trained, I sing solo or with organ, blending into the liturgy with a clear, warm tone.",
+          "I sing in churches across Bornem, Puurs, Mechelen and the Klein-Brabant region, in Latin, Dutch and other languages as the celebration calls for.",
+        ],
+        includes: [
+          { t: "Liturgical singing", d: "Mass parts, communion songs and hymns for services and feast days." },
+          { t: "Baptisms & communions", d: "Warm, uplifting music for the family celebrations that mark a new step." },
+          { t: "With organ or solo", d: "A cappella or with organist — matched to your church and celebrant." },
+        ],
+        repertoire: ["Ave Maria", "Panis Angelicus", "Ave Verum Corpus", "Laudate Dominum", "Sacred chant", "Franck · Panis Angelicus"],
+        regionText: "Available for church services and ceremonies across the Antwerp province and Klein-Brabant — including:",
+        faq: [
+          { q: "Which languages do you sing in?", a: "Latin, Dutch, English, Italian and more — chosen to suit the liturgy and the moment." },
+          { q: "Do you rehearse with our organist?", a: "Yes, I'm happy to coordinate and rehearse with your organist or musicians beforehand." },
+          { q: "Which churches do you serve?", a: "Churches throughout Bornem, Puurs, Mechelen and the wider Klein-Brabant region." },
+        ],
+        ctaTitle: "Sacred music for your celebration",
+        ctaText: "Tell me the date, church and occasion — I'll reply personally, usually within the day.",
+      },
+      concerts: {
+        eyebrow: "Live singing · Concerts & Jazz",
+        h1a: "Concerts, jazz &",
+        h1i: "intimate evenings",
+        intro: [
+          "Arias and romances for the concert hall, and classic jazz and evergreens for receptions, private events and intimate evenings. From Baroque and opera to Autumn Leaves, I shape a programme that fits your audience and your space.",
+          "Available for concerts, corporate events, receptions and private parties in Bornem, Mechelen, Antwerp and across Klein-Brabant — solo, with pianist, or with ensemble.",
+        ],
+        includes: [
+          { t: "Concert programmes", d: "Classical and sacred recitals for concert halls, churches and festivals." },
+          { t: "Jazz & evergreens", d: "Warm, elegant standards for receptions, dinners and private celebrations." },
+          { t: "Flexible line-up", d: "Solo, with pianist, or with a small ensemble — tailored to your event." },
+        ],
+        repertoire: ["Autumn Leaves", "Summertime", "Fly Me to the Moon", "Italian arias", "Carmina Burana · In Trutina", "Händel · Piangerò"],
+        regionText: "Available for concerts and events across the Antwerp province and Klein-Brabant — including:",
+        faq: [
+          { q: "Can you tailor the programme to our event?", a: "Absolutely — from a sacred recital to a jazzy reception, the set is built around your occasion." },
+          { q: "Do you perform with musicians?", a: "Solo, with pianist, or with a small ensemble, depending on the venue and your wishes." },
+          { q: "What kind of events do you sing at?", a: "Concerts, festivals, corporate events, receptions, anniversaries and private parties." },
+        ],
+        ctaTitle: "Bring live music to your event",
+        ctaText: "Tell me about your event and date — I reply personally, usually within the day.",
+      },
     },
     concerts: {
       eyebrow: "Upcoming Concerts",
@@ -194,6 +320,15 @@ export const translations = {
     footer: {
       tagline: "Voice · Classical · Jazz. All rights reserved.",
       madeBy: "Made by",
+    },
+    enrollPopup: {
+      badge: "Limited places",
+      eyebrow: "Vocal School · 2026–2027",
+      title1: "Enroll for the",
+      titleItalic: "new school year",
+      text: "Pre-enrollment for the new academic year is now open. The school starts as soon as the group is formed — reserve your spot before the places fill up.",
+      cta: "Reserve my spot",
+      dismiss: "Maybe later",
     },
     school: {
       heroEyebrow: "Vocal School · Pre-enrollment open",
@@ -460,6 +595,7 @@ export const translations = {
       eyebrow: "Optredens",
       title1: "De juiste muziek voor",
       titleItalic: "elke gelegenheid",
+      pageLink: "Meer info",
       items: [
         {
           title: "In de Kerk",
@@ -482,6 +618,131 @@ export const translations = {
           repertoire: ["Autumn Leaves", "Summertime", "Italiaanse aria's"],
         },
       ],
+    },
+    occasions: {
+      backHome: "Home",
+      includesLabel: "Wat inbegrepen is",
+      repertoireLabel: "Enkele favorieten",
+      regionLabel: "Waar ik zing",
+      faqLabel: "Veelgestelde vragen",
+      cta: "Vraag mijn beschikbaarheid",
+      ctaSecondary: "Bekijk alle optredens",
+      cities: ["Bornem", "Puurs", "Oppuurs", "Sint-Amands", "Willebroek", "Boom", "Temse", "Mechelen", "Dendermonde", "Buggenhout", "Hamme", "Sint-Niklaas"],
+      weddings: {
+        eyebrow: "Live zang · Huwelijken",
+        h1a: "Zangeres voor",
+        h1i: "jouw trouwdag",
+        intro: [
+          "Van de ceremonie tot de eerste toost maakt een live stem de mooiste momenten van je huwelijk onvergetelijk. Ik zing bij de intrede, de geloften, de ondertekening en de receptie — klassiek, gewijd of jazz, afgestemd op de sfeer die je droomt.",
+          "Vanuit Bornem zing ik op bruiloften in Puurs, Willebroek, Temse, Mechelen, Dendermonde en heel Klein-Brabant — in kerken, kastelen, landgoederen en intieme locaties.",
+        ],
+        includes: [
+          { t: "De ceremonie", d: "Live zang bij de intrede, de geloften en de ondertekening — in de kerk of bij een burgerlijke ceremonie." },
+          { t: "Receptie & diner", d: "Klassieke crossover en warme jazzstandards terwijl je gasten aankomen en vieren." },
+          { t: "Jouw lied", d: "We kiezen samen het repertoire — inclusief een speciaal verzoek voor je openingsdans of een familiefavoriet." },
+        ],
+        repertoire: ["Schubert · Ave Maria", "The Prayer", "Caccini · Ave Maria", "Can't Help Falling in Love", "A Thousand Years", "Hallelujah"],
+        regionText: "Beschikbaar voor huwelijken in de provincie Antwerpen en Klein-Brabant — waaronder:",
+        faq: [
+          { q: "Live begeleiding of backingtracks?", a: "Beide zijn mogelijk — met pianist of organist voor een klassieke ceremonie, of met kwalitatieve tracks voor jazz en pop." },
+          { q: "Kun je een lied leren dat niet in je repertoire staat?", a: "Ja. Als een lied een bijzondere betekenis heeft, bereid ik het graag voor jouw dag voor." },
+          { q: "Hoe ver reis je?", a: "Bornem en de ruime regio Klein-Brabant zijn standaard; verder weg kan op aanvraag." },
+        ],
+        ctaTitle: "Laat jouw dag zingen",
+        ctaText: "Laat me je datum en locatie weten — ik antwoord persoonlijk, meestal binnen de dag.",
+        sections: [
+          {
+            eyebrow: "In de kerk",
+            title: "De ceremonie",
+            text: "Live zang tijdens jullie kerkelijke ceremonie — bij de intrede, de geloften, de ondertekening en de uittrede, samen met jullie gekozen.",
+            points: [
+              "Met mijn vaste organist, of met de organist die jullie kerk of locatie voorziet",
+              "Een koor kan als optie worden toegevoegd",
+              "Gewijd en klassiek repertoire, van Ave Maria tot jullie persoonlijke verzoek",
+            ],
+          },
+          {
+            eyebrow: "Receptie & feest",
+            title: "De receptie",
+            text: "Voor de receptie kies je uit twee sferen:",
+            variants: [
+              { name: "Klassiek", desc: "Elegante klassieke crossover en tijdloze evergreens — solo of met pianist." },
+              { name: "Jazz", desc: "Een swingend jazzcombo van mijn eigen muzikanten — de perfecte warme sfeer voor een receptie of diner, en ideaal voor deze gelegenheden." },
+            ],
+          },
+        ],
+        songsTitle: "Suggesties voor nummers",
+        showMedia: true,
+      },
+      funerals: {
+        eyebrow: "Live zang · Afscheid",
+        h1a: "Een stem voor",
+        h1i: "een zacht afscheid",
+        intro: [
+          "Een live stem zegt wat woorden niet kunnen. Bij uitvaarten, gedenkdiensten en afscheidsplechtigheden zing ik zacht en oprecht — muziek die verdriet met warmte en waardigheid draagt, en iedereen een moment van rust geeft.",
+          "Ik zing in kerken, crematoria en uitvaartcentra in Bornem, Puurs, Willebroek, Mechelen, Dendermonde en heel Klein-Brabant, discreet in samenwerking met je uitvaartondernemer.",
+        ],
+        includes: [
+          { t: "De dienst", d: "Zang bij de intrede, tijdens het eerbetoon en bij het laatste afscheid — in kerk, kapel of crematorium." },
+          { t: "Fijngevoelig", d: "Repertoire en volume met zorg gekozen, zodat de muziek draagt in plaats van overheerst." },
+          { t: "Een betekenisvol lied", d: "Een geliefd nummer van je dierbare kan als persoonlijk eerbetoon worden voorbereid." },
+        ],
+        repertoire: ["Pie Jesu", "Amazing Grace", "Ave Maria", "Time to Say Goodbye", "Panis Angelicus", "Requiem-fragmenten"],
+        regionText: "Beschikbaar voor afscheidsplechtigheden in de provincie Antwerpen en Klein-Brabant — waaronder:",
+        faq: [
+          { q: "Hoe snel kun je geboekt worden?", a: "Afscheidsdiensten worden vaak op korte termijn geregeld — neem gerust contact op en ik doe mijn best om er te zijn." },
+          { q: "Werk je samen met onze uitvaartondernemer?", a: "Ja, ik stem discreet af met het uitvaartcentrum en de celebrant over timing en repertoire." },
+          { q: "Kun je een specifiek lied zingen?", a: "Uiteraard. Een lied dat iets betekende voor je dierbare kan een passend eerbetoon worden." },
+        ],
+        ctaTitle: "Muziek voor een waardig afscheid",
+        ctaText: "Neem contact op met de datum en plaats — ik antwoord persoonlijk en met zorg.",
+      },
+      ceremonies: {
+        eyebrow: "Live zang · Kerk & Ceremonie",
+        h1a: "Gewijde zang voor",
+        h1i: "kerk & ceremonie",
+        intro: [
+          "Liturgische en gewijde zang die het kerkschip vult — voor vieringen, feestdagen, doopsels, communies en stille momenten van bezinning. Klassiek geschoold zing ik solo of met orgel, subtiel verweven in de liturgie met een heldere, warme klank.",
+          "Ik zing in kerken in Bornem, Puurs, Mechelen en de regio Klein-Brabant, in het Latijn, Nederlands en andere talen naargelang de viering.",
+        ],
+        includes: [
+          { t: "Liturgische zang", d: "Misdelen, communieliederen en gezangen voor vieringen en feestdagen." },
+          { t: "Doopsels & communies", d: "Warme, verheffende muziek voor de familiemomenten die een nieuwe stap markeren." },
+          { t: "Met orgel of solo", d: "A capella of met organist — afgestemd op je kerk en celebrant." },
+        ],
+        repertoire: ["Ave Maria", "Panis Angelicus", "Ave Verum Corpus", "Laudate Dominum", "Gewijde gezangen", "Franck · Panis Angelicus"],
+        regionText: "Beschikbaar voor vieringen en ceremonies in de provincie Antwerpen en Klein-Brabant — waaronder:",
+        faq: [
+          { q: "In welke talen zing je?", a: "Latijn, Nederlands, Engels, Italiaans en meer — gekozen naargelang de liturgie en het moment." },
+          { q: "Repeteer je met onze organist?", a: "Ja, ik stem graag af en repeteer vooraf met je organist of muzikanten." },
+          { q: "Welke kerken bedien je?", a: "Kerken in heel Bornem, Puurs, Mechelen en de ruime regio Klein-Brabant." },
+        ],
+        ctaTitle: "Gewijde muziek voor jouw viering",
+        ctaText: "Laat me de datum, kerk en gelegenheid weten — ik antwoord persoonlijk, meestal binnen de dag.",
+      },
+      concerts: {
+        eyebrow: "Live zang · Concerten & Jazz",
+        h1a: "Concerten, jazz &",
+        h1i: "intieme avonden",
+        intro: [
+          "Aria's en romances voor de concertzaal, en klassieke jazz en evergreens voor recepties, private events en intieme avonden. Van barok en opera tot Autumn Leaves — ik stel een programma samen dat past bij je publiek en je locatie.",
+          "Beschikbaar voor concerten, bedrijfsevents, recepties en private feesten in Bornem, Mechelen, Antwerpen en heel Klein-Brabant — solo, met pianist of met ensemble.",
+        ],
+        includes: [
+          { t: "Concertprogramma's", d: "Klassieke en gewijde recitals voor concertzalen, kerken en festivals." },
+          { t: "Jazz & evergreens", d: "Warme, elegante standards voor recepties, diners en private vieringen." },
+          { t: "Flexibele bezetting", d: "Solo, met pianist of met een klein ensemble — op maat van je event." },
+        ],
+        repertoire: ["Autumn Leaves", "Summertime", "Fly Me to the Moon", "Italiaanse aria's", "Carmina Burana · In Trutina", "Händel · Piangerò"],
+        regionText: "Beschikbaar voor concerten en events in de provincie Antwerpen en Klein-Brabant — waaronder:",
+        faq: [
+          { q: "Kun je het programma afstemmen op ons event?", a: "Absoluut — van een gewijd recital tot een jazzy receptie, de set wordt rond jouw gelegenheid gebouwd." },
+          { q: "Treed je op met muzikanten?", a: "Solo, met pianist of met een klein ensemble, afhankelijk van de locatie en je wensen." },
+          { q: "Bij welke events zing je?", a: "Concerten, festivals, bedrijfsevents, recepties, jubilea en private feesten." },
+        ],
+        ctaTitle: "Breng live muziek naar je event",
+        ctaText: "Vertel me over je event en datum — ik antwoord persoonlijk, meestal binnen de dag.",
+      },
     },
     concerts: {
       eyebrow: "Komende Concerten",
@@ -586,6 +847,15 @@ export const translations = {
     footer: {
       tagline: "Zang · Klassiek · Jazz. Alle rechten voorbehouden.",
       madeBy: "Gemaakt door",
+    },
+    enrollPopup: {
+      badge: "Beperkt aantal plaatsen",
+      eyebrow: "Zangschool · 2026–2027",
+      title1: "Schrijf je in voor het",
+      titleItalic: "nieuwe schooljaar",
+      text: "De voorinschrijving voor het nieuwe schooljaar is nu open. De school start zodra de groep gevormd is — verzeker je van een plek voordat het aantal plaatsen vol zit.",
+      cta: "Reserveer mijn plek",
+      dismiss: "Later misschien",
     },
     school: {
       heroEyebrow: "Zangschool · Voorinschrijving open",

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useSwipe } from "../hooks/useSwipe";
 import slide1 from "@/assets/about-1.jpg";
 import slide2 from "@/assets/about-2.png";
 import slide3 from "@/assets/about-3.jpg";
@@ -9,6 +10,16 @@ import slide4 from "@/assets/about-4.png";
 import slide5 from "@/assets/about-5.jpg";
 
 const slides = [slide1, slide2, slide3, slide4, slide5];
+
+// Per-slide crop focus. slide5 (choir finale) has Mayya on the far left, so on the
+// narrow mobile crop we shift the focus left to keep her in frame; centered elsewhere.
+const slidePos = [
+  "object-center",
+  "object-center",
+  "object-center",
+  "object-center",
+  "object-[25%_center] sm:object-center",
+];
 
 export function About() {
   const { t } = useLanguage();
@@ -18,6 +29,11 @@ export function About() {
     const id = setInterval(() => setSlideIdx((p) => (p + 1) % slides.length), 4500);
     return () => clearInterval(id);
   }, []);
+
+  const swipe = useSwipe(
+    () => setSlideIdx((p) => (p + 1) % slides.length),
+    () => setSlideIdx((p) => (p - 1 + slides.length) % slides.length),
+  );
 
   return (
     <section id="about" className="relative bg-[#f5efe4] py-28 lg:py-36">
@@ -63,7 +79,10 @@ export function About() {
               className="relative"
             >
               <div className="absolute -inset-3 rounded-[2rem] border border-[#c9a36a]/40" />
-              <div className="relative h-[34rem] w-full overflow-hidden rounded-[1.8rem] bg-[#2a1f15] shadow-[0_40px_80px_-30px_rgba(58,46,34,0.6)]">
+              <div
+                {...swipe}
+                className="relative h-[34rem] w-full touch-pan-y select-none overflow-hidden rounded-[1.8rem] bg-[#2a1f15] shadow-[0_40px_80px_-30px_rgba(58,46,34,0.6)]"
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={slideIdx}
@@ -73,7 +92,7 @@ export function About() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.9 }}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className={`absolute inset-0 h-full w-full object-cover ${slidePos[slideIdx]}`}
                   />
                 </AnimatePresence>
                 <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">

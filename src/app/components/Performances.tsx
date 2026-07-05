@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Reveal } from "./Reveal";
+import { useNavigate } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useSwipe } from "../hooks/useSwipe";
+
+// Detail page per performance tab, in the same order as the items list.
+const OCCASION_PATHS = ["/ceremonies", "/bruiloften", "/uitvaarten", "/concerten"];
 
 type Item = {
   num: string;
@@ -47,6 +52,7 @@ const variants = {
 
 export function Performances() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [active, setActive] = useState(0);
   const [dir, setDir] = useState(1);
 
@@ -66,6 +72,16 @@ export function Performances() {
     }, 7000);
     return () => clearInterval(id);
   }, [items.length]);
+
+  const paginate = (d: number) => {
+    setDir(d);
+    setActive((prev) => (prev + d + items.length) % items.length);
+  };
+
+  const swipe = useSwipe(
+    () => paginate(1),
+    () => paginate(-1),
+  );
 
   const item = items[active];
 
@@ -142,7 +158,7 @@ export function Performances() {
               className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20"
             >
               {/* Image */}
-              <div className="relative">
+              <div {...swipe} className="relative touch-pan-y select-none">
                 <span
                   className="pointer-events-none absolute -top-10 left-2 font-serif text-[#c9a36a]/25 lg:-top-16"
                   style={{
@@ -191,13 +207,21 @@ export function Performances() {
                   ))}
                 </ul>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <button
-                    onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                    className="rounded-full bg-[#c9a36a] px-8 py-3.5 tracking-[0.08em] text-[#2a1f15] shadow-[0_10px_25px_-8px_rgba(201,163,106,0.6)] transition-all duration-300 hover:bg-[#dbb87f]"
-                  >
-                    {t.nav.book}
-                  </button>
+                <div className="mt-8 flex flex-col items-start gap-5">
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+                      className="rounded-full bg-[#c9a36a] px-8 py-3.5 tracking-[0.08em] text-[#2a1f15] shadow-[0_10px_25px_-8px_rgba(201,163,106,0.6)] transition-all duration-300 hover:bg-[#dbb87f]"
+                    >
+                      {t.nav.book}
+                    </button>
+                    <button
+                      onClick={() => navigate(OCCASION_PATHS[active])}
+                      className="rounded-full border border-[#6b4f37] px-8 py-3.5 tracking-[0.08em] text-[#6b4f37] transition-all duration-300 hover:bg-[#6b4f37] hover:text-[#f8f2e7]"
+                    >
+                      {t.performances.pageLink}
+                    </button>
+                  </div>
                   <button
                     onClick={() => document.querySelector("#recordings")?.scrollIntoView({ behavior: "smooth" })}
                     className="group inline-flex items-center gap-2 tracking-[0.06em] text-[#8a6a3f] transition-colors hover:text-[#6b4f37]"

@@ -125,8 +125,9 @@ export function Navbar() {
         <div className="flex items-center gap-4 lg:hidden">
           <LangSwitch />
           <button
+            type="button"
             onClick={() => setOpen((v) => !v)}
-            className={dark ? "text-[#3a2e22]" : "text-[#f8f2e7]"}
+            className={`-mr-2 flex h-11 w-11 items-center justify-center ${dark ? "text-[#3a2e22]" : "text-[#f8f2e7]"}`}
             aria-label={t.nav.menu}
           >
             {open ? <X size={26} /> : <Menu size={26} />}
@@ -143,19 +144,21 @@ export function Navbar() {
             transition={{ duration: 0.4 }}
             className="overflow-hidden border-t border-[#6b4f37]/15 bg-[#f5efe4]/95 backdrop-blur-md lg:hidden"
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
+            <div className="flex flex-col gap-1 px-4 py-3">
               {links.map((l) => (
                 <button
                   key={l.label}
+                  type="button"
                   onClick={() => handle(l)}
-                  className="py-2 text-left tracking-[0.06em] text-[#5a4733]"
+                  className="flex min-h-[48px] w-full items-center rounded-lg px-2 text-left tracking-[0.06em] text-[#5a4733] transition-colors active:bg-[#6b4f37]/10"
                 >
                   {l.label}
                 </button>
               ))}
               <button
+                type="button"
                 onClick={() => goAnchor("#contact")}
-                className="mt-2 rounded-full bg-[#6b4f37] px-6 py-2.5 text-[#f8f2e7]"
+                className="mt-2 flex min-h-[48px] w-full items-center justify-center rounded-full bg-[#6b4f37] px-6 text-[#f8f2e7] transition-opacity active:opacity-80"
               >
                 {t.nav.contact}
               </button>
