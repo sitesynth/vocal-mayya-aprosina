@@ -34,7 +34,13 @@ export function Navbar() {
     if (location.pathname !== "/") {
       navigate("/" + anchor);
     } else {
-      document.querySelector(anchor)?.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        const el = document.querySelector(anchor);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 420);
     }
   };
 
