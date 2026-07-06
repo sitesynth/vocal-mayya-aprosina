@@ -90,7 +90,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ opacity: { delay: 1.5 }, y: { repeat: Infinity, duration: 2.2 } }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-[#e3c89a]"
+        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 p-2 text-[#e3c89a]"
         aria-label={t.hero.scroll}
       >
         <ChevronDown size={34} strokeWidth={1.3} />

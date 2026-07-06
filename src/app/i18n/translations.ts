@@ -96,6 +96,7 @@ export const translations = {
       backHome: "Home",
       includesLabel: "What's included",
       repertoireLabel: "A few favourites",
+      howLabel: "How it works",
       regionLabel: "Where I perform",
       faqLabel: "Frequently asked",
       cta: "Check my availability",
@@ -114,7 +115,7 @@ export const translations = {
           { t: "Reception & dinner", d: "Classical crossover and warm jazz standards as your guests arrive and celebrate." },
           { t: "Your song", d: "We choose the repertoire together — including a special request for your first dance or a family favourite." },
         ],
-        repertoire: ["Schubert · Ave Maria", "The Prayer", "Caccini · Ave Maria", "Can't Help Falling in Love", "A Thousand Years", "Hallelujah"],
+        repertoire: ["Schubert · Ave Maria", "The Prayer", "Caccini · Ave Maria", "Can't Help Falling in Love", "A Thousand Years", "La Vie en Rose"],
         regionText: "Available for weddings across the Antwerp province and Klein-Brabant — including:",
         faq: [
           { q: "Live accompaniment or backing tracks?", a: "Both are possible — with pianist or organist for a classical ceremony, or with high-quality tracks for jazz and pop." },
@@ -123,6 +124,11 @@ export const translations = {
         ],
         ctaTitle: "Let's make your day sing",
         ctaText: "Tell me your date and venue — I reply personally, usually within the day.",
+        steps: [
+          { num: "01", title: "First conversation", text: "A free, no-obligation call to learn about your wishes, style and venue. We shape the musical concept around your day — ceremony, reception, or both." },
+          { num: "02", title: "Planning together", text: "We choose the songs together. I coordinate directly with the organist or musicians and liaise with the church or venue, so you have one less thing to think about." },
+          { num: "03", title: "Your wedding day", text: "I arrive early, coordinate with your photographer and celebrant, and deliver the music exactly as you imagined it." },
+        ],
         sections: [
           {
             eyebrow: "In the church",
@@ -133,6 +139,7 @@ export const translations = {
               "A choir can be added as an option",
               "Sacred and classical repertoire, from Ave Maria to your personal request",
             ],
+            songs: ["Schubert · Ave Maria", "Caccini · Ave Maria", "The Prayer", "Panis Angelicus", "Laudate Dominum", "Pie Jesu"],
           },
           {
             eyebrow: "Reception & celebration",
@@ -142,6 +149,7 @@ export const translations = {
               { name: "Classical", desc: "Elegant classical crossover and timeless evergreens — solo or with pianist." },
               { name: "Jazz", desc: "A swinging jazz combo of my own musicians — the perfect warm atmosphere for a reception or dinner, and a truly ideal fit for these celebrations." },
             ],
+            songs: ["Can't Help Falling in Love", "A Thousand Years", "La Vie en Rose", "Perfect Symphony", "Fly Me to the Moon"],
           },
         ],
         songsTitle: "Song suggestions",
@@ -176,12 +184,12 @@ export const translations = {
         h1i: "church & ceremony",
         intro: [
           "Liturgical and sacred singing that fills the nave — for Sunday services, feast days, baptisms, communions and quiet moments of devotion. Classically trained, I sing solo or with organ, blending into the liturgy with a clear, warm tone.",
-          "I sing in churches across Bornem, Puurs, Mechelen and the Klein-Brabant region, in Latin, Dutch and other languages as the celebration calls for.",
+          "I also perform with a choir — solo voice leading the ensemble, or woven into the choral texture. Available in churches across Bornem, Puurs, Mechelen and the Klein-Brabant region, in Latin, Dutch and other languages as the celebration calls for.",
         ],
         includes: [
           { t: "Liturgical singing", d: "Mass parts, communion songs and hymns for services and feast days." },
           { t: "Baptisms & communions", d: "Warm, uplifting music for the family celebrations that mark a new step." },
-          { t: "With organ or solo", d: "A cappella or with organist — matched to your church and celebrant." },
+          { t: "Solo or with choir", d: "A cappella, with organist, or with a full choir — the format is matched to your church and occasion." },
         ],
         repertoire: ["Ave Maria", "Panis Angelicus", "Ave Verum Corpus", "Laudate Dominum", "Sacred chant", "Franck · Panis Angelicus"],
         regionText: "Available for church services and ceremonies across the Antwerp province and Klein-Brabant — including:",
@@ -192,6 +200,7 @@ export const translations = {
         ],
         ctaTitle: "Sacred music for your celebration",
         ctaText: "Tell me the date, church and occasion — I'll reply personally, usually within the day.",
+        showAgenda: true,
       },
       concerts: {
         eyebrow: "Live singing · Concerts & Jazz",
@@ -623,6 +632,7 @@ export const translations = {
       backHome: "Home",
       includesLabel: "Wat inbegrepen is",
       repertoireLabel: "Enkele favorieten",
+      howLabel: "Zo werkt het",
       regionLabel: "Waar ik zing",
       faqLabel: "Veelgestelde vragen",
       cta: "Vraag mijn beschikbaarheid",
@@ -641,7 +651,7 @@ export const translations = {
           { t: "Receptie & diner", d: "Klassieke crossover en warme jazzstandards terwijl je gasten aankomen en vieren." },
           { t: "Jouw lied", d: "We kiezen samen het repertoire — inclusief een speciaal verzoek voor je openingsdans of een familiefavoriet." },
         ],
-        repertoire: ["Schubert · Ave Maria", "The Prayer", "Caccini · Ave Maria", "Can't Help Falling in Love", "A Thousand Years", "Hallelujah"],
+        repertoire: ["Schubert · Ave Maria", "The Prayer", "Caccini · Ave Maria", "Can't Help Falling in Love", "A Thousand Years", "La Vie en Rose"],
         regionText: "Beschikbaar voor huwelijken in de provincie Antwerpen en Klein-Brabant — waaronder:",
         faq: [
           { q: "Live begeleiding of backingtracks?", a: "Beide zijn mogelijk — met pianist of organist voor een klassieke ceremonie, of met kwalitatieve tracks voor jazz en pop." },
@@ -650,6 +660,11 @@ export const translations = {
         ],
         ctaTitle: "Laat jouw dag zingen",
         ctaText: "Laat me je datum en locatie weten — ik antwoord persoonlijk, meestal binnen de dag.",
+        steps: [
+          { num: "01", title: "Eerste gesprek", text: "Een vrijblijvend gesprek om jullie wensen, stijl en locatie te leren kennen. We stemmen het muzikale concept af op jullie dag — ceremonie, receptie of allebei." },
+          { num: "02", title: "Samen plannen", text: "We kiezen de nummers samen. Ik stem rechtstreeks af met de organist of musici en neem contact op met de kerk of locatie, zodat jullie er geen omkijken naar hebben." },
+          { num: "03", title: "Jullie trouwdag", text: "Ik ben vroeg aanwezig, stem af met jullie fotograaf en celebrant, en zorg dat de muziek precies zo klinkt als jullie het voor ogen hadden." },
+        ],
         sections: [
           {
             eyebrow: "In de kerk",
@@ -660,6 +675,7 @@ export const translations = {
               "Een koor kan als optie worden toegevoegd",
               "Gewijd en klassiek repertoire, van Ave Maria tot jullie persoonlijke verzoek",
             ],
+            songs: ["Schubert · Ave Maria", "Caccini · Ave Maria", "The Prayer", "Panis Angelicus", "Laudate Dominum", "Pie Jesu"],
           },
           {
             eyebrow: "Receptie & feest",
@@ -669,6 +685,7 @@ export const translations = {
               { name: "Klassiek", desc: "Elegante klassieke crossover en tijdloze evergreens — solo of met pianist." },
               { name: "Jazz", desc: "Een swingend jazzcombo van mijn eigen muzikanten — de perfecte warme sfeer voor een receptie of diner, en ideaal voor deze gelegenheden." },
             ],
+            songs: ["Can't Help Falling in Love", "A Thousand Years", "La Vie en Rose", "Perfect Symphony", "Fly Me to the Moon"],
           },
         ],
         songsTitle: "Suggesties voor nummers",
@@ -703,12 +720,12 @@ export const translations = {
         h1i: "kerk & ceremonie",
         intro: [
           "Liturgische en gewijde zang die het kerkschip vult — voor vieringen, feestdagen, doopsels, communies en stille momenten van bezinning. Klassiek geschoold zing ik solo of met orgel, subtiel verweven in de liturgie met een heldere, warme klank.",
-          "Ik zing in kerken in Bornem, Puurs, Mechelen en de regio Klein-Brabant, in het Latijn, Nederlands en andere talen naargelang de viering.",
+          "Ik tred ook op met een koor — als solostem die het ensemble leidt, of verweven in de koorklanken. Beschikbaar in kerken in Bornem, Puurs, Mechelen en de regio Klein-Brabant, in het Latijn, Nederlands en andere talen naargelang de viering.",
         ],
         includes: [
           { t: "Liturgische zang", d: "Misdelen, communieliederen en gezangen voor vieringen en feestdagen." },
           { t: "Doopsels & communies", d: "Warme, verheffende muziek voor de familiemomenten die een nieuwe stap markeren." },
-          { t: "Met orgel of solo", d: "A capella of met organist — afgestemd op je kerk en celebrant." },
+          { t: "Solo of met koor", d: "A capella, met organist of met een volledig koor — afgestemd op je kerk en gelegenheid." },
         ],
         repertoire: ["Ave Maria", "Panis Angelicus", "Ave Verum Corpus", "Laudate Dominum", "Gewijde gezangen", "Franck · Panis Angelicus"],
         regionText: "Beschikbaar voor vieringen en ceremonies in de provincie Antwerpen en Klein-Brabant — waaronder:",
@@ -719,6 +736,7 @@ export const translations = {
         ],
         ctaTitle: "Gewijde muziek voor jouw viering",
         ctaText: "Laat me de datum, kerk en gelegenheid weten — ik antwoord persoonlijk, meestal binnen de dag.",
+        showAgenda: true,
       },
       concerts: {
         eyebrow: "Live zang · Concerten & Jazz",

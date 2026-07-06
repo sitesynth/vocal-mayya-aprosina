@@ -5,15 +5,15 @@ import { Reveal } from "../components/Reveal";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Recordings } from "../components/Recordings";
 import { VideoGallery } from "../components/VideoGallery";
+import { Concerts } from "../components/Concerts";
 import { PhotoCarousel } from "../components/PhotoCarousel";
 import { useLanguage } from "../i18n/LanguageContext";
-import ceremoniesImg from "@/assets/mayya-singing.jpg";
+import ceremoniesImg from "@/assets/about-4.png";
 
 export type OccasionSlug = "weddings" | "funerals" | "ceremonies" | "concerts";
 
 // Church interior for the wedding ceremony section (replaceable with a real photo).
-const CHURCH_IMG =
-  "https://images.unsplash.com/photo-1697206897349-f782a7f1ae01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1280";
+const CHURCH_IMG = "/photos/bruiloften/Gemini_Generated_Image_qnkul8qnkul8qnku.png";
 
 // slug → hero image + public URL path + schema service type
 const CONFIG: Record<OccasionSlug, { image: string; path: string; service: string }> = {
@@ -155,6 +155,20 @@ export function OccasionPage({ slug }: { slug: OccasionSlug }) {
                   ))}
                 </div>
               )}
+
+              {"songs" in s && s.songs && (
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {s.songs.map((song) => (
+                    <span
+                      key={song}
+                      className="rounded-full border border-[#c9a36a]/50 px-3.5 py-1 font-serif italic text-[#8a6a3f]"
+                      style={{ fontSize: "0.93rem" }}
+                    >
+                      {song}
+                    </span>
+                  ))}
+                </div>
+              )}
             </Reveal>
           </div>
         </section>
@@ -187,31 +201,41 @@ export function OccasionPage({ slug }: { slug: OccasionSlug }) {
         </section>
       )}
 
-      {/* Song suggestions + listen link */}
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <Reveal>
-            <p className="mb-5 tracking-[0.35em] uppercase text-[#a8814c]" style={{ fontSize: "0.78rem" }}>
-              {("songsTitle" in d && d.songsTitle) || o.repertoireLabel}
-            </p>
-            <ul className="flex flex-wrap gap-x-6 gap-y-3">
-              {d.repertoire.map((r) => (
-                <li key={r} className="font-serif italic text-[#8a6a3f]" style={{ fontSize: "1.15rem" }}>
-                  {r}
-                </li>
+      {/* How it works — 3 steps (weddings only) */}
+      {"steps" in d && d.steps && (
+        <section className="bg-[#efe6d6] py-20 lg:py-28">
+          <div className="mx-auto max-w-6xl px-6 lg:px-10">
+            <Reveal>
+              <p className="mb-12 tracking-[0.35em] uppercase text-[#a8814c]" style={{ fontSize: "0.78rem" }}>
+                {o.howLabel}
+              </p>
+            </Reveal>
+            <div className="grid gap-8 md:grid-cols-3">
+              {d.steps.map((s, i) => (
+                <Reveal key={s.num} delay={i * 0.1}>
+                  <div className="relative h-full rounded-2xl bg-[#faf5ec] p-7 shadow-[0_20px_50px_-30px_rgba(58,46,34,0.4)]">
+                    <span
+                      className="mb-5 block font-serif text-[#c9a36a]/50"
+                      style={{ fontSize: "3rem", fontWeight: 600, lineHeight: 1 }}
+                    >
+                      {s.num}
+                    </span>
+                    <h3 className="font-serif text-[#3a2e22]" style={{ fontSize: "1.35rem", fontWeight: 500 }}>
+                      {s.title}
+                    </h3>
+                    <p className="mt-3 text-[#5a4733]" style={{ fontSize: "1.05rem", lineHeight: 1.7 }}>
+                      {s.text}
+                    </p>
+                  </div>
+                </Reveal>
               ))}
-            </ul>
-            {d.showMedia && (
-              <button
-                onClick={() => document.querySelector("#recordings")?.scrollIntoView({ behavior: "smooth" })}
-                className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#6b4f37] px-7 py-3 tracking-[0.06em] text-[#6b4f37] transition-all duration-300 hover:bg-[#6b4f37] hover:text-[#f8f2e7]"
-              >
-                {t.hero.cta2}
-              </button>
-            )}
-          </Reveal>
-        </div>
-      </section>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Agenda */}
+      {"showAgenda" in d && d.showAgenda && <Concerts />}
 
       {/* Region */}
       <section className="bg-[#efe6d6] py-20 lg:py-24">
@@ -238,23 +262,32 @@ export function OccasionPage({ slug }: { slug: OccasionSlug }) {
         </div>
       </section>
 
+      {/* Recordings + video, as on the home page */}
+      {d.showMedia && (
+        <>
+          <Recordings />
+          <VideoGallery />
+        </>
+      )}
+
       {/* FAQ */}
-      <section className="py-20 lg:py-24">
-        <div className="mx-auto max-w-3xl px-6 lg:px-10">
+      <section className="relative overflow-hidden bg-[#2c2118] py-20 lg:py-28">
+        <div className="absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_20%_50%,#c9a36a_0,transparent_50%),radial-gradient(circle_at_80%_50%,#8a6a3f_0,transparent_45%)]" />
+        <div className="relative mx-auto max-w-3xl px-6 lg:px-10">
           <Reveal>
-            <p className="mb-10 tracking-[0.35em] uppercase text-[#a8814c]" style={{ fontSize: "0.78rem" }}>
+            <p className="mb-10 tracking-[0.35em] uppercase text-[#c9a36a]" style={{ fontSize: "0.78rem" }}>
               {o.faqLabel}
             </p>
           </Reveal>
           <div className="space-y-8">
             {d.faq.map((f, i) => (
               <Reveal key={f.q} delay={i * 0.06}>
-                <div className="border-b border-[#6b4f37]/15 pb-7">
-                  <h3 className="flex items-start gap-3 font-serif text-[#3a2e22]" style={{ fontSize: "1.3rem", fontWeight: 500 }}>
-                    <Check size={19} className="mt-1 shrink-0 text-[#8a6a3f]" />
+                <div className="border-b border-[#f3ead9]/10 pb-7">
+                  <h3 className="flex items-start gap-3 font-serif text-[#f8f2e7]" style={{ fontSize: "1.3rem", fontWeight: 500 }}>
+                    <Check size={19} className="mt-1 shrink-0 text-[#c9a36a]" />
                     {f.q}
                   </h3>
-                  <p className="mt-3 pl-8 text-[#5a4733]" style={{ fontSize: "1.08rem", lineHeight: 1.75 }}>
+                  <p className="mt-3 pl-8 text-[#e8dcc4]/80" style={{ fontSize: "1.08rem", lineHeight: 1.75 }}>
                     {f.a}
                   </p>
                 </div>
@@ -263,14 +296,6 @@ export function OccasionPage({ slug }: { slug: OccasionSlug }) {
           </div>
         </div>
       </section>
-
-      {/* Recordings + video, as on the home page */}
-      {d.showMedia && (
-        <>
-          <Recordings />
-          <VideoGallery />
-        </>
-      )}
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-[#2c2118] py-24 text-center text-[#f3ead9] lg:py-32">

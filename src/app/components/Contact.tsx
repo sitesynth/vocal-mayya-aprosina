@@ -142,7 +142,7 @@ export function Contact() {
                       key={o}
                       type="button"
                       onClick={() => setOccasion(o)}
-                      className={`rounded-full border px-4 py-1.5 transition-colors ${
+                      className={`min-h-[44px] rounded-full border px-4 py-2.5 transition-colors ${
                         occasion === o
                           ? "border-[#c9a36a] bg-[#c9a36a] text-[#2a1f15]"
                           : "border-[#f3ead9]/20 text-[#e7dcc8]/80 hover:border-[#c9a36a]"

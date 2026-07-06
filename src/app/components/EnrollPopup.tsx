@@ -71,7 +71,7 @@ export function EnrollPopup() {
               type="button"
               onClick={close}
               aria-label="Close"
-              className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[#1f160e]/35 text-[#f8f2e7] backdrop-blur-sm transition-colors hover:bg-[#1f160e]/55"
+              className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-[#1f160e]/35 text-[#f8f2e7] backdrop-blur-sm transition-colors hover:bg-[#1f160e]/55"
             >
               <X size={20} />
             </button>
@@ -116,7 +116,7 @@ export function EnrollPopup() {
               <button
                 type="button"
                 onClick={close}
-                className="mt-3 w-full py-2 tracking-[0.04em] text-[#8a7762] transition-colors hover:text-[#6b4f37]"
+                className="mt-3 min-h-[44px] w-full py-2 tracking-[0.04em] text-[#8a7762] transition-colors hover:text-[#6b4f37]"
                 style={{ fontSize: "0.92rem" }}
               >
                 {p.dismiss}

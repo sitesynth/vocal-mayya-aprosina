@@ -99,11 +99,14 @@ export function About() {
                   {slides.map((_, i) => (
                     <button
                       key={i}
+                      type="button"
                       onClick={() => setSlideIdx(i)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
+                      className="flex items-center justify-center px-2 py-4"
+                    >
+                      <span className={`block h-2 rounded-full transition-all duration-300 ${
                         i === slideIdx ? "w-6 bg-[#f3ead9]" : "w-2 bg-[#f3ead9]/50"
-                      }`}
-                    />
+                      }`} />
+                    </button>
                   ))}
                 </div>
               </div>

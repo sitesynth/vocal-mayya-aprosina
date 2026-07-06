@@ -223,8 +223,9 @@ export function Performances() {
                     </button>
                   </div>
                   <button
+                    type="button"
                     onClick={() => document.querySelector("#recordings")?.scrollIntoView({ behavior: "smooth" })}
-                    className="group inline-flex items-center gap-2 tracking-[0.06em] text-[#8a6a3f] transition-colors hover:text-[#6b4f37]"
+                    className="group inline-flex min-h-[44px] items-center gap-2 py-2 tracking-[0.06em] text-[#8a6a3f] transition-colors hover:text-[#6b4f37]"
                   >
                     {t.hero.cta2}
                     <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -236,18 +237,22 @@ export function Performances() {
                   {items.map((_, i) => (
                     <button
                       key={i}
+                      type="button"
                       onClick={() => {
                         setDir(i > active ? 1 : -1);
                         setActive(i);
                       }}
-                      className="h-2 rounded-full transition-all duration-300 focus:outline-none"
-                      style={{
-                        width: active === i ? "2rem" : "0.5rem",
-                        background:
-                          active === i ? "#c9a36a" : "#d9c9ae",
-                      }}
+                      className="flex items-center justify-center px-2 py-4 focus:outline-none"
                       aria-label={`Go to ${items[i].title}`}
-                    />
+                    >
+                      <span
+                        className="block h-2 rounded-full transition-all duration-300"
+                        style={{
+                          width: active === i ? "2rem" : "0.5rem",
+                          background: active === i ? "#c9a36a" : "#d9c9ae",
+                        }}
+                      />
+                    </button>
                   ))}
                 </div>
               </div>

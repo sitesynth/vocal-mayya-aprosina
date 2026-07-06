@@ -52,8 +52,9 @@ export function Navbar() {
         <span key={l} className="flex items-center gap-1">
           {i > 0 && <span className={dark ? "text-[#6b4f37]/40" : "text-[#f3ead9]/40"}>/</span>}
           <button
+            type="button"
             onClick={() => setLang(l)}
-            className={`uppercase tracking-[0.1em] transition-colors ${
+            className={`min-h-[44px] px-1 uppercase tracking-[0.1em] transition-colors ${
               lang === l
                 ? dark
                   ? "text-[#6b4f37]"
