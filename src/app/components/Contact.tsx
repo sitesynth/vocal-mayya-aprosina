@@ -11,6 +11,12 @@ import { toast } from "sonner";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "../i18n/LanguageContext";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export function Contact() {
   const { t } = useLanguage();
   const occasions = t.contact.occasions;
@@ -42,6 +48,8 @@ export function Contact() {
         body: JSON.stringify({ name, contact, occasion, message }),
       });
       if (!res.ok) throw new Error("Failed to send");
+      // Track the lead in GA4 (fetch submit doesn't trigger the auto form_submit event)
+      window.gtag?.("event", "generate_lead", { occasion });
       toast.success(t.contact.toast);
       form.reset();
       setName("");
